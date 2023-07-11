@@ -4,9 +4,9 @@ import IdsvrHaapiUIKit
 struct ContentView: View, HaapiFlowResult {
     
     let haapiApplication: HaapiUIKitApplication
-    @State private var loggingIn = false
     @State private var oAuthTokenModel: OAuthTokenModel? = nil
     @State private var error: Error? = nil
+    @State private var isLoggingIn: Bool = false
     
     var body: some View {
         
@@ -27,7 +27,7 @@ struct ContentView: View, HaapiFlowResult {
                 .padding(20)
             
             Button {
-                loggingIn = true
+                isLoggingIn = true
             } label: {
                 Text("Start HAAPI Login")
             }
@@ -38,39 +38,33 @@ struct ContentView: View, HaapiFlowResult {
             
             Spacer()
         }
-        .sheet(isPresented: $loggingIn) {
+        .sheet(isPresented: $isLoggingIn) {
             
             HaapiFlow.start(
                 self,
                 haapiUIKitApplication: haapiApplication,
                 haapiDeepLinkManageable: HaapiDeepLinkManager.shared)
         }
-        .alert(isPresented: Binding<Bool>.constant(error != nil)) {
-            
-            Alert(title: Text("Problem encountered"),
-                  message: Text(error?.localizedDescription ?? ""),
-                  dismissButton: .default(Text("OK"))
-            )
+        .alert("Login completed and tokens received", isPresented: Binding<Bool>.constant(oAuthTokenModel != nil)) {
+        } message: {
+            Text(oAuthTokenModel?.accessToken ?? "")
         }
-        .alert(isPresented: Binding<Bool>.constant(oAuthTokenModel != nil)) {
-            
-            Alert(title: Text("Login completed and tokens received"),
-                  message: Text(oAuthTokenModel?.accessToken ?? ""),
-                  dismissButton: .default(Text("OK"))
-            )
+        .alert("Problem encountered", isPresented: Binding<Bool>.constant(error != nil)) {
+        } message: {
+            Text(error?.localizedDescription ?? "")
         }
     }
 
     func didReceiveOAuthTokenModel(_ oAuthTokenModel: IdsvrHaapiUIKit.OAuthTokenModel) {
-        loggingIn = false
         self.oAuthTokenModel = oAuthTokenModel
         self.error = nil
+        self.isLoggingIn = false
     }
 
     func didReceiveError(_ error: Error) {
-        loggingIn = false
         self.error = error
         self.oAuthTokenModel = nil
+        self.isLoggingIn = false
     }
 }
 

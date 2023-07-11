@@ -18,9 +18,11 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
                                                                  authorizationEndpointUrl: Constants.authorizationEndpointURL,
                                                                  appRedirect: Constants.redirectUri)
         .setOauthAuthorizationParamsProvider { OAuthAuthorizationParameters(scopes: Constants.scopes) }
-        //.setURLSession(session: URLSession(configuration: .haapi,
-        //                                   delegate: TrustAllCertsDelegate(),
-        //                                   delegateQueue: nil))
+        .setURLSession(session: URLSession(configuration: .haapi,
+                                           delegate: TrustAllCertsDelegate(),
+                                           delegateQueue: nil))
+        .setPresentationMode(mode: PresentationMode.modal)
+        .setShouldAutoHandleFlowErrorFeedback(value: false)
         .build()
 
     var haapiUIKitApplication: HaapiUIKitApplication!
@@ -29,7 +31,7 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
         
         HaapiLogger.followUpTags = DriverFollowUpTag.allCases + SdkFollowUpTag.allCases + UIKitFollowUpTag.allCases
         HaapiLogger.enabled = true
-        
+
         haapiUIKitApplication = HaapiUIKitApplicationBuilder(haapiUIKitConfiguration: haapiUIKitConfiguration)
             .build()
 
