@@ -8,6 +8,9 @@
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
 
+### Framework files
+Framework
+
 ### Deployment files ###
 deployment
 license.json
