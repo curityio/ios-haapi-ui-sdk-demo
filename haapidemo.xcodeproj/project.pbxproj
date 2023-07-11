@@ -12,6 +12,7 @@
 		282A70EE2A5D694E000AE4FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282A70ED2A5D694E000AE4FD /* Assets.xcassets */; };
 		282A70F82A5D6A81000AE4FD /* DemoAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A70F72A5D6A81000AE4FD /* DemoAppDelegate.swift */; };
 		282A70FB2A5D6D82000AE4FD /* IdsvrHaapiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282A70FA2A5D6D82000AE4FD /* IdsvrHaapiUIKit.xcframework */; };
+		282A70FD2A5D7664000AE4FD /* TrustAllCertsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A70FC2A5D7664000AE4FD /* TrustAllCertsDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		282A70ED2A5D694E000AE4FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		282A70F72A5D6A81000AE4FD /* DemoAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppDelegate.swift; sourceTree = "<group>"; };
 		282A70FA2A5D6D82000AE4FD /* IdsvrHaapiUIKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = IdsvrHaapiUIKit.xcframework; path = "../../ios-cat/build/IdsvrHaapiUIKit.xcframework"; sourceTree = "<group>"; };
+		282A70FC2A5D7664000AE4FD /* TrustAllCertsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustAllCertsDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				282A70E92A5D694C000AE4FD /* DemoApp.swift */,
 				282A70F72A5D6A81000AE4FD /* DemoAppDelegate.swift */,
 				282A70EB2A5D694C000AE4FD /* ContentView.swift */,
+				282A70FC2A5D7664000AE4FD /* TrustAllCertsDelegate.swift */,
 				282A70ED2A5D694E000AE4FD /* Assets.xcassets */,
 			);
 			path = src;
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				282A70F82A5D6A81000AE4FD /* DemoAppDelegate.swift in Sources */,
+				282A70FD2A5D7664000AE4FD /* TrustAllCertsDelegate.swift in Sources */,
 				282A70EC2A5D694C000AE4FD /* ContentView.swift in Sources */,
 				282A70EA2A5D694C000AE4FD /* DemoApp.swift in Sources */,
 			);
@@ -283,7 +287,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.curity.haapidemo;
+				PRODUCT_BUNDLE_IDENTIFIER = io.curity.cat.ios.client;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -311,7 +315,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.curity.haapidemo;
+				PRODUCT_BUNDLE_IDENTIFIER = io.curity.cat.ios.client;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -4,10 +4,10 @@ import IdsvrHaapiUIKit
 class DemoAppDelegate: NSObject, UIApplicationDelegate {
 
     private enum Constants {
-        static let clientId = "haapi-ios-client"
+        static let clientId = "haapi-ios-dev-client"
         static let redirectUri = "haapi:start"
         static let scopes = ["openid", "profile"]
-        static let baseURL = URL(string: "https://login.example.com")!
+        static let baseURL = URL(string: "https://localhost:8443")!
         static let tokenEndpointURL = URL(string: "/oauth/v2/oauth-token", relativeTo: baseURL)!
         static let authorizationEndpointURL = URL(string: "/oauth/v2/oauth-authorize", relativeTo: baseURL)!
     }
@@ -18,6 +18,9 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
                                                                  authorizationEndpointUrl: Constants.authorizationEndpointURL,
                                                                  appRedirect: Constants.redirectUri)
         .setOauthAuthorizationParamsProvider { OAuthAuthorizationParameters(scopes: Constants.scopes) }
+        .setURLSession(session: URLSession(configuration: .haapi,
+                                           delegate: TrustAllCertsDelegate(),
+                                           delegateQueue: nil))
         .build()
 
     var haapiUIKitApplication: HaapiUIKitApplication!
@@ -33,4 +36,3 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
         return true
     }
 }
-
