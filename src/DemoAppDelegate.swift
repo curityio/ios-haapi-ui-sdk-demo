@@ -18,9 +18,9 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
                                                                  authorizationEndpointUrl: Constants.authorizationEndpointURL,
                                                                  appRedirect: Constants.redirectUri)
         .setOauthAuthorizationParamsProvider { OAuthAuthorizationParameters(scopes: Constants.scopes) }
-        .setURLSession(session: URLSession(configuration: .haapi,
-                                           delegate: TrustAllCertsDelegate(),
-                                           delegateQueue: nil))
+        //.setURLSession(session: URLSession(configuration: .haapi,
+        //                                   delegate: TrustAllCertsDelegate(),
+        //                                   delegateQueue: nil))
         .build()
 
     var haapiUIKitApplication: HaapiUIKitApplication!

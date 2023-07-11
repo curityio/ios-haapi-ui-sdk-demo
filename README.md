@@ -9,6 +9,9 @@ Until the SDK is released, Curity employees can build this app via the following
 - Build the pre-release frameworks according to [these instructions](https://stackoverflowteams.com/c/curity/questions/194)
 - Drag the `build/IdsvrHaapiUIKit.xcframework` into the `Frameworks` folder
 
+To avoid `DYLD1 library missing` errors using the launch icon on a simulator I use the `Embed and Sign` option.\
+I'm also using automatic signing with my personal Apple account.
+
 ## Docker Automated Setup
 
 The required Curity Identity Server setup is provided through a script. To run the setup, follow these steps:
