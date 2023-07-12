@@ -11,13 +11,15 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
         static let tokenEndpointURL = URL(string: "/oauth/v2/oauth-token", relativeTo: baseURL)!
         static let authorizationEndpointURL = URL(string: "/oauth/v2/oauth-authorize", relativeTo: baseURL)!
     }
-
+    
     var haapiUIKitConfiguration = HaapiUIKitConfigurationBuilder(clientId: Constants.clientId,
                                                                  baseUrl: Constants.baseURL,
                                                                  tokenEndpointUrl: Constants.tokenEndpointURL,
                                                                  authorizationEndpointUrl: Constants.authorizationEndpointURL,
                                                                  appRedirect: Constants.redirectUri)
-        .setOauthAuthorizationParamsProvider { OAuthAuthorizationParameters(scopes: Constants.scopes) }
+        .setOauthAuthorizationParamsProvider { OAuthAuthorizationParameters(
+            scopes: Constants.scopes
+        ) }
         .setURLSession(session: URLSession(configuration: .haapi,
                                            delegate: TrustAllCertsDelegate(),
                                            delegateQueue: nil))
@@ -30,7 +32,7 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         HaapiLogger.followUpTags = DriverFollowUpTag.allCases + SdkFollowUpTag.allCases + UIKitFollowUpTag.allCases
-        HaapiLogger.enabled = true
+        HaapiLogger.enabled = false
 
         haapiUIKitApplication = HaapiUIKitApplicationBuilder(haapiUIKitConfiguration: haapiUIKitConfiguration)
             .build()
