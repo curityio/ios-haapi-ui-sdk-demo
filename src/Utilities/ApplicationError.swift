@@ -18,9 +18,23 @@ import IdsvrHaapiUIKit
 
 class ApplicationError: Error {
 
-    private let description: String
-    
-    init(description: String) {
-        self.description = description
+    let title: String
+    let description: String
+    let code: String?
+
+    init(title: String, description: String, code:String? = nil) {
+        self.title = title
+        self.description = description.isEmpty ? "Operation failed" : description
+        self.code = code
+    }
+
+    public func getDetails() -> String {
+        
+        var details = "";
+        if self.code != nil {
+            details += "\(self.code!), "
+        }
+        details += self.description
+        return details
     }
 }

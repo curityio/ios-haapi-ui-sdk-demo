@@ -18,20 +18,28 @@ import SwiftUI
 
 struct ErrorView: View {
 
-    private let description: String
+    private let error: ApplicationError
     
-    init(error: Error) {
-        self.description = error.localizedDescription.isEmpty ? "Unknown Error" : error.localizedDescription
+    init(error: ApplicationError) {
+        self.error = error
     }
     
     var body: some View {
+        
+        let deviceWidth = UIScreen.main.bounds.size.width
     
         return VStack {
             
-            Text(self.description)
+            Text(self.error.title)
+                .labelStyle()
+                .padding(.top, 20)
+                .padding(.leading, 20)
+                .frame(width: deviceWidth, alignment: .leading)
+            
+            Text(self.error.getDetails())
                 .errorValueStyle()
                 .padding(.leading, 20)
-                .padding(.trailing, 20)
+                .frame(width: deviceWidth, alignment: .leading)
         }
     }
 }

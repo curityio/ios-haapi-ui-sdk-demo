@@ -22,7 +22,7 @@ struct UnauthenticatedView: View, HaapiFlowResult {
     private let haapiApplication: HaapiUIKitApplication
 
     @ObservedObject private var loginState: LoginState
-    @State private var error: Error? = nil
+    @State private var error: ApplicationError? = nil
     @State private var isLoggingIn: Bool = false
     
     init(haapiApplication: HaapiUIKitApplication, loginState: LoginState) {
@@ -77,6 +77,6 @@ struct UnauthenticatedView: View, HaapiFlowResult {
     func didReceiveError(_ error: Error) {
         self.isLoggingIn = false
         self.loginState.clear()
-        self.error = error
+        self.error = ApplicationError(title: "HAAPI Login Error", description: error.localizedDescription)
     }
 }
