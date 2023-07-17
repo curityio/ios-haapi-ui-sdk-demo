@@ -34,14 +34,14 @@ struct UnauthenticatedView: View, HaapiFlowResult {
         
         VStack {
             
-            if self.error != nil {
+            if self.error == nil {
+                Text("welcome_message")
+                    .labelStyle()
+                    .padding(.top, 20)
+            } else {
                 ErrorView(error: self.error!)
                     .padding(.top, 20)
             }
-    
-            Text("welcome_message")
-                            .labelStyle()
-                            .padding(.top, 20)
                         
             Image("StartIllustration")
                 .aspectRatio(contentMode: .fit)
