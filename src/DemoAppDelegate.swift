@@ -44,7 +44,7 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
         
         self.haapiUIKitApplication = HaapiUIKitApplicationBuilder(haapiUIKitConfiguration: haapiUIKitConfiguration)
             .build()
-        
+
         self.loginState = LoginState()
         return true
     }

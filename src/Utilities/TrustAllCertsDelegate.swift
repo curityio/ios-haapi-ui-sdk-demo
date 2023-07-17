@@ -17,9 +17,10 @@
 import SwiftUI
 
 /*
- * For use only in development environments, to allow connections to https://localhost:8443
+ * For use only in environments where untrusted development certificates are used, eg to https://localhost:8443
  */
 class TrustAllCertsDelegate: NSObject, URLSessionDelegate {
+    
     func urlSession(
         _ session: URLSession,
         didReceive challenge: URLAuthenticationChallenge,
