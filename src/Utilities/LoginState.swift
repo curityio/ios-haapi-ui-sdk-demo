@@ -37,7 +37,7 @@ class LoginState: ObservableObject {
             scope: tokenResponse.scope,
             expiresIn: tokenResponse.expiresIn,
             refreshToken: tokenResponse.refreshToken,
-            idToken: tokenResponse.idToken)
+            idToken: tokenResponse.idToken ?? self.tokens?.idToken)
     }
 
     func clear() {

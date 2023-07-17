@@ -19,16 +19,11 @@ import IdsvrHaapiUIKit
 
 struct AuthenticatedView: View {
     
-    private let haapiApplication: HaapiUIKitApplication
-    private let oauthTokenManager: OAuthTokenManager
-
     @ObservedObject private var loginState: LoginState
     @State private var error: Error? = nil
 
-    init(haapiApplication: HaapiUIKitApplication, loginState: LoginState, oauthTokenManager: OAuthTokenManager) {
-        self.haapiApplication = haapiApplication
+    init(loginState: LoginState) {
         self.loginState = loginState
-        self.oauthTokenManager = oauthTokenManager
     }
 
     var body: some View {
@@ -93,7 +88,7 @@ struct AuthenticatedView: View {
             .padding(.leading, 20)
             .padding(.trailing, 20)
             .buttonStyle(CustomButtonStyle(disabled: !signOutEnabled))
-                        .disabled(!signOutEnabled)
+            .disabled(!signOutEnabled)
 
             Spacer()
         }
@@ -105,40 +100,44 @@ struct AuthenticatedView: View {
         if (self.loginState.userName != nil) {
             return
         }
-        
-        /*
-        
-        let accessToken = self.loginState.tokens?.accessToken
-        
-        var urlRequest = URLRequest(url: userinfoEndpointURL.unsafelyUnwrapped,
-                                    cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-                                    timeoutInterval: 20)
+        guard let accessToken = self.loginState.tokens?.accessToken else {
+            return
+        }
+            
+        var urlRequest = URLRequest(url: Configuration.userInfoEndpointURL)
         urlRequest.httpMethod = "GET"
         urlRequest.addValue("bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        urlSession.dataTask(with: urlRequest) { [weak self] data, _, error in
-            guard let self = self else { return }
-            
+        
+        let urlSession = URLSession(configuration: .haapi,
+                                           delegate: TrustAllCertsDelegate(),
+                                           delegateQueue: nil)
+        urlSession.dataTask(with: urlRequest) { data, _, error in
+
             DispatchQueue.main.async {
                 guard error == nil, let data = data else {
-                    self.userInfo = nil
                     return
                 }
 
                 guard let userInfo = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
-                    self.userInfo = nil
                     return
                 }
-
-                self.userInfo = "\(userInfo["given_name"]) \(userInfo["family_name"])"
+                
+                let givenName = userInfo["given_name"] as? String
+                let familyName = userInfo["family_name"] as? String
+                if (givenName != nil && familyName != nil) {
+                    self.loginState.updateFromUserInfoResponse(userName: "\(givenName!) \(familyName!)")
+                }
             }
         }
-        .resume()*/
+        .resume()
     }
-    
+
     private func refreshAccessToken() {
         
         guard let refreshToken = self.loginState.tokens?.refreshToken else { return }
-        self.oauthTokenManager.refreshAccessToken(with: refreshToken) { response in
+        
+        let oauthTokenManager = OAuthTokenManagerAccessor().get()
+        oauthTokenManager.refreshAccessToken(with: refreshToken) { response in
     
             if case let .successfulToken(tokenResponse) = response {
                 DispatchQueue.main.async {

@@ -26,8 +26,7 @@ struct DemoApp: App {
         WindowGroup {
             MainView(
                 haapiApplication: appDelegate.haapiUIKitApplication,
-                loginState: appDelegate.loginState,
-                oauthTokenManager: appDelegate.oauthTokenManager)
+                loginState: appDelegate.loginState)
                     .onOpenURL(perform: handleUrl(url:))
         }
     }

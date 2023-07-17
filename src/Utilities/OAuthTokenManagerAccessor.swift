@@ -24,10 +24,10 @@ public class OAuthTokenManagerAccessor: OAuthTokenConfigurable {
     public let urlSession: URLSession
     public let revocationEndpointURL: URL?
 
-    public init(clientId: String, tokenEndpointURL: URL) {
+    public init() {
         
-        self.clientId = clientId
-        self.tokenEndpointURL = tokenEndpointURL
+        self.clientId = Configuration.clientId
+        self.tokenEndpointURL = Configuration.tokenEndpointURL
         self.appRedirect = ""
         self.urlSession = URLSession(configuration: .haapi,
                                      delegate: TrustAllCertsDelegate(),

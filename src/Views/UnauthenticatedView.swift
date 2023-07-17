@@ -68,9 +68,9 @@ struct UnauthenticatedView: View, HaapiFlowResult {
         }
     }
 
-    func didReceiveOAuthTokenModel(_ oAuthTokenModel: IdsvrHaapiUIKit.OAuthTokenModel) {
+    func didReceiveOAuthTokenModel(_ tokens: IdsvrHaapiUIKit.OAuthTokenModel) {
         self.isLoggingIn = false
-        self.loginState.updateFromLoginResponse(tokens: oAuthTokenModel)
+        self.loginState.updateFromLoginResponse(tokens: tokens)
         self.error = nil
     }
 

@@ -20,14 +20,12 @@ import IdsvrHaapiUIKit
 struct MainView: View {
 
     private let haapiApplication: HaapiUIKitApplication
-    private let oauthTokenManager: OAuthTokenManager
     
     @ObservedObject private var loginState: LoginState
 
-    init(haapiApplication: HaapiUIKitApplication, loginState: LoginState, oauthTokenManager: OAuthTokenManager) {
+    init(haapiApplication: HaapiUIKitApplication, loginState: LoginState) {
         self.haapiApplication = haapiApplication
         self.loginState = loginState
-        self.oauthTokenManager = oauthTokenManager
     }
 
     var body: some View {
@@ -42,7 +40,7 @@ struct MainView: View {
             if (self.loginState.tokens == nil) {
                 UnauthenticatedView(haapiApplication: self.haapiApplication, loginState: self.loginState)
             } else {
-                AuthenticatedView(haapiApplication: self.haapiApplication,  loginState: self.loginState, oauthTokenManager: self.oauthTokenManager)
+                AuthenticatedView(loginState: self.loginState)
             }
         }
     }

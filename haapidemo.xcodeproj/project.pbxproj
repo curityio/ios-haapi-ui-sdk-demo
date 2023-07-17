@@ -23,6 +23,7 @@
 		28C9FD802A654DC000902F08 /* OAuthTokenManagerAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD7F2A654DC000902F08 /* OAuthTokenManagerAccessor.swift */; };
 		28C9FD822A65560800902F08 /* OAuthTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD812A65560800902F08 /* OAuthTokens.swift */; };
 		28C9FD842A655ED400902F08 /* ApplicationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD832A655ED400902F08 /* ApplicationError.swift */; };
+		28C9FD862A657A2700902F08 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD852A657A2700902F08 /* Configuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +57,7 @@
 		28C9FD7F2A654DC000902F08 /* OAuthTokenManagerAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTokenManagerAccessor.swift; sourceTree = "<group>"; };
 		28C9FD812A65560800902F08 /* OAuthTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTokens.swift; sourceTree = "<group>"; };
 		28C9FD832A655ED400902F08 /* ApplicationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationError.swift; sourceTree = "<group>"; };
+		28C9FD852A657A2700902F08 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,10 +92,11 @@
 		282A70E82A5D694C000AE4FD /* src */ = {
 			isa = PBXGroup;
 			children = (
-				28C9FD632A6526D400902F08 /* Views */,
-				28C9FD692A65271D00902F08 /* Utilities */,
+				28C9FD852A657A2700902F08 /* Configuration.swift */,
 				282A70E92A5D694C000AE4FD /* DemoApp.swift */,
 				282A70F72A5D6A81000AE4FD /* DemoAppDelegate.swift */,
+				28C9FD632A6526D400902F08 /* Views */,
+				28C9FD692A65271D00902F08 /* Utilities */,
 				282A70ED2A5D694E000AE4FD /* Assets.xcassets */,
 			);
 			path = src;
@@ -206,6 +209,7 @@
 			files = (
 				28C9FD842A655ED400902F08 /* ApplicationError.swift in Sources */,
 				28C9FD752A65391C00902F08 /* CustomButtonStyle.swift in Sources */,
+				28C9FD862A657A2700902F08 /* Configuration.swift in Sources */,
 				28C9FD6F2A65315400902F08 /* LoginState.swift in Sources */,
 				28C9FD802A654DC000902F08 /* OAuthTokenManagerAccessor.swift in Sources */,
 				28C9FD672A6526FD00902F08 /* AuthenticatedView.swift in Sources */,

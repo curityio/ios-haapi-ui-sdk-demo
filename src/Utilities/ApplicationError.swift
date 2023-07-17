@@ -17,7 +17,7 @@
 import IdsvrHaapiUIKit
 
 class ApplicationError: Error {
-    
+
     private let description: String
     
     init(description: String) {
