@@ -15,26 +15,25 @@
 //
 
 import SwiftUI
-import IdsvrHaapiUIKit
 
-@main
-struct DemoApp: App {
+struct CustomButtonStyle: ButtonStyle {
     
-    @UIApplicationDelegateAdaptor(DemoAppDelegate.self) var appDelegate
+    private let disabled: Bool
 
-    var body: some Scene {
-        WindowGroup {
-            MainView(
-                haapiApplication: appDelegate.haapiUIKitApplication,
-                loginState: appDelegate.loginState,
-                oauthTokenManager: appDelegate.oauthTokenManager)
-                    .onOpenURL(perform: handleUrl(url:))
-        }
+    init (disabled: Bool = false) {
+        self.disabled = disabled
     }
     
-    func handleUrl(url: URL) {
-        if HaapiDeepLinkManager.shared.canHandleUrl(url) {
-            HaapiDeepLinkManager.shared.handleUrl(url)
-        }
+    func makeBody(configuration: ButtonStyleConfiguration) -> some View {
+
+        configuration.label
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50)
+            .foregroundColor(.white)
+            .background(Color("PrimaryDark"))
+            .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
+            .opacity(self.disabled ? 0.5 : 1.0)
+            .cornerRadius(8)
+            .disabled(self.disabled)
     }
 }
+

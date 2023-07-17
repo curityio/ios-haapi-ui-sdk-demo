@@ -1,0 +1,8 @@
+"main_title" = "HAAPI UI SDK Demo App";
+"welcome_message" = "Welcome to the Demo App";
+"start_authentication" = "Start Authentication";
+"username" = "User Name";
+"access_token" = "Access Token";
+"refresh_token" = "Refresh Token";
+"refresh_access_token" = "Refresh Access Token";
+"sign_out" = "Sign Out";

@@ -14,27 +14,13 @@
 // limitations under the License.
 //
 
-import SwiftUI
 import IdsvrHaapiUIKit
 
-@main
-struct DemoApp: App {
+class ApplicationError: Error {
     
-    @UIApplicationDelegateAdaptor(DemoAppDelegate.self) var appDelegate
-
-    var body: some Scene {
-        WindowGroup {
-            MainView(
-                haapiApplication: appDelegate.haapiUIKitApplication,
-                loginState: appDelegate.loginState,
-                oauthTokenManager: appDelegate.oauthTokenManager)
-                    .onOpenURL(perform: handleUrl(url:))
-        }
-    }
+    private let description: String
     
-    func handleUrl(url: URL) {
-        if HaapiDeepLinkManager.shared.canHandleUrl(url) {
-            HaapiDeepLinkManager.shared.handleUrl(url)
-        }
+    init(description: String) {
+        self.description = description
     }
 }

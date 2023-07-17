@@ -15,26 +15,24 @@
 //
 
 import SwiftUI
-import IdsvrHaapiUIKit
 
-@main
-struct DemoApp: App {
+struct ErrorView: View {
+
+    private let description: String
     
-    @UIApplicationDelegateAdaptor(DemoAppDelegate.self) var appDelegate
-
-    var body: some Scene {
-        WindowGroup {
-            MainView(
-                haapiApplication: appDelegate.haapiUIKitApplication,
-                loginState: appDelegate.loginState,
-                oauthTokenManager: appDelegate.oauthTokenManager)
-                    .onOpenURL(perform: handleUrl(url:))
-        }
+    init(error: Error) {
+        self.description = error.localizedDescription.isEmpty ? "Unknown Error" : error.localizedDescription
     }
     
-    func handleUrl(url: URL) {
-        if HaapiDeepLinkManager.shared.canHandleUrl(url) {
-            HaapiDeepLinkManager.shared.handleUrl(url)
+    var body: some View {
+    
+        return VStack {
+            
+            Text(self.description)
+                .errorValueStyle()
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
         }
     }
 }
+
