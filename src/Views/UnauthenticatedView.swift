@@ -23,7 +23,6 @@ struct UnauthenticatedView: View, HaapiFlowResult {
 
     @ObservedObject private var loginState: LoginState
     @State private var error: ApplicationError? = nil
-    @State private var isLoggingIn: Bool = false
     
     init(haapiApplication: HaapiUIKitApplication, loginState: LoginState) {
         self.haapiApplication = haapiApplication
@@ -48,7 +47,7 @@ struct UnauthenticatedView: View, HaapiFlowResult {
                 .padding(.top, 20)
             
             Button {
-                isLoggingIn = true
+                self.loginState.isLoggingIn = true
             } label: {
                 Text("start_authentication")
             }
@@ -59,7 +58,7 @@ struct UnauthenticatedView: View, HaapiFlowResult {
             
             Spacer()
         }
-        .sheet(isPresented: $isLoggingIn) {
+        .sheet(isPresented: $loginState.isLoggingIn) {
             
             HaapiFlow.start(
                 self,
@@ -69,13 +68,13 @@ struct UnauthenticatedView: View, HaapiFlowResult {
     }
 
     func didReceiveOAuthTokenModel(_ tokens: IdsvrHaapiUIKit.OAuthTokenModel) {
-        self.isLoggingIn = false
+        self.loginState.isLoggingIn = false
         self.loginState.updateFromLoginResponse(tokens: tokens)
         self.error = nil
     }
 
     func didReceiveError(_ error: Error) {
-        self.isLoggingIn = false
+        self.loginState.isLoggingIn = false
         self.loginState.clear()
         self.error = ApplicationError(title: "HAAPI Login Error", description: error.localizedDescription)
     }
