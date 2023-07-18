@@ -20,7 +20,7 @@ class LoginState: ObservableObject {
     
     @Published var tokens: OAuthTokenModel? = nil
     @Published var userName: String? = nil
-    
+
     func updateFromLoginResponse(tokens: OAuthTokenModel) {
         self.tokens = tokens
     }

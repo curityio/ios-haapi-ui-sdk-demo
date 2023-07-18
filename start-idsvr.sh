@@ -15,7 +15,7 @@
 # By default the Curity Identity Server will use the local computer's host IP.
 # Set USE_NGROK to true and a dynamic NGROK base URL will be used automatically.
 #
-USE_NGROK=true
+USE_NGROK=false
 EXAMPLE_NAME='haapi'
 BASE_URL=https://localhost:8443
 
