@@ -34,8 +34,13 @@ struct AuthenticatedView: View {
 
         return VStack {
             
-            if self.error != nil {
+            if self.error == nil {
+                Text("authenticated_message")
+                    .labelStyle()
+                    .padding(.top, 20)
+            } else {
                 ErrorView(error: self.error!)
+                    .padding(.top, 20)
             }
            
             Text("username")

@@ -33,9 +33,9 @@ struct MainView: View {
         return VStack {
             
             Text("main_title")
-                            .headingStyle()
-                            .padding(.top, 20)
-                            .padding(.leading, 20)
+                    .titleStyle()
+                    .padding(.top, 20)
+                    .padding(.leading, 20)
 
             if (self.loginState.tokens == nil) {
                 UnauthenticatedView(haapiApplication: self.haapiApplication, loginState: self.loginState)
@@ -43,5 +43,6 @@ struct MainView: View {
                 AuthenticatedView(loginState: self.loginState)
             }
         }
+        .background(Color("Background"))
     }
 }

@@ -31,7 +31,7 @@ struct ErrorView: View {
         return VStack {
             
             Text(self.error.title)
-                .labelStyle()
+                .headingStyle()
                 .padding(.top, 20)
                 .padding(.leading, 20)
                 .frame(width: deviceWidth, alignment: .leading)

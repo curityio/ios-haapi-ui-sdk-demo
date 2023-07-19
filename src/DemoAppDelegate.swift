@@ -26,7 +26,7 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
         
         HaapiLogger.followUpTags = DriverFollowUpTag.allCases + SdkFollowUpTag.allCases + UIKitFollowUpTag.allCases
         HaapiLogger.enabled = false
-
+        
         let haapiUIKitConfiguration = HaapiUIKitConfigurationBuilder(clientId: Configuration.clientId,
                                                                      baseUrl: Configuration.baseURL,
                                                                      tokenEndpointUrl: Configuration.tokenEndpointURL,
@@ -43,6 +43,7 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
             .build()
         
         self.haapiUIKitApplication = HaapiUIKitApplicationBuilder(haapiUIKitConfiguration: haapiUIKitConfiguration)
+            .setThemingPlistFileName("CustomTheme")
             .build()
 
         self.loginState = LoginState()

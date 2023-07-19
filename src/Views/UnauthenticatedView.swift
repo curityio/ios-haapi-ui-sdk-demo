@@ -37,6 +37,8 @@ struct UnauthenticatedView: View, HaapiFlowResult {
                 Text("welcome_message")
                     .labelStyle()
                     .padding(.top, 20)
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
             } else {
                 ErrorView(error: self.error!)
                     .padding(.top, 20)
