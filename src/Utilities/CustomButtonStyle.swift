@@ -28,6 +28,7 @@ struct CustomButtonStyle: ButtonStyle {
 
         configuration.label
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50)
+            .font(.custom(Fonts.medium, size: 16))
             .foregroundColor(.white)
             .background(Color("Primary"))
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
@@ -36,4 +37,3 @@ struct CustomButtonStyle: ButtonStyle {
             .disabled(self.disabled)
     }
 }
-

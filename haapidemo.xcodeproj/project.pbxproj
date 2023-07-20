@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		281D40822A6922FE00D4E4AA /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281D40812A6922FE00D4E4AA /* Fonts.swift */; };
 		282A70EA2A5D694C000AE4FD /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A70E92A5D694C000AE4FD /* DemoApp.swift */; };
 		282A70EC2A5D694C000AE4FD /* UnauthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A70EB2A5D694C000AE4FD /* UnauthenticatedView.swift */; };
 		282A70EE2A5D694E000AE4FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282A70ED2A5D694E000AE4FD /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		281D40812A6922FE00D4E4AA /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		282A70E62A5D694C000AE4FD /* haapidemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = haapidemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282A70E92A5D694C000AE4FD /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
 		282A70EB2A5D694C000AE4FD /* UnauthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticatedView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			children = (
 				28C9FD832A655ED400902F08 /* ApplicationError.swift */,
 				28C9FD742A65391C00902F08 /* CustomButtonStyle.swift */,
+				281D40812A6922FE00D4E4AA /* Fonts.swift */,
 				28C9FD6E2A65315400902F08 /* LoginState.swift */,
 				28C9FD7F2A654DC000902F08 /* OAuthTokenManagerAccessor.swift */,
 				28C9FD812A65560800902F08 /* OAuthTokens.swift */,
@@ -242,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28C9FD842A655ED400902F08 /* ApplicationError.swift in Sources */,
+				281D40822A6922FE00D4E4AA /* Fonts.swift in Sources */,
 				28C9FD752A65391C00902F08 /* CustomButtonStyle.swift in Sources */,
 				28C9FD862A657A2700902F08 /* Configuration.swift in Sources */,
 				28C9FD6F2A65315400902F08 /* LoginState.swift in Sources */,

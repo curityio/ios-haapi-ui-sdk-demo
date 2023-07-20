@@ -18,40 +18,34 @@ import SwiftUI
 
 extension Text {
     
-    private enum Constants {
-        static let regularFont = "IBMPlexMono-Regular"
-        static let mediumFont = "IBMPlexMono-Medium"
-        static let boldFont = "IBMPlexMono-Bold"
-    }
-    
     func titleStyle() -> Text {
 
         return foregroundColor(Color.black)
-                .font(.custom(Constants.regularFont, size: 40))
+                .font(.custom(Fonts.regular, size: 40))
     }
-    
+
     func headingStyle() -> Text {
 
         return foregroundColor(Color.black)
-                .font(.custom(Constants.boldFont, size: 20))
+                .font(.custom(Fonts.bold, size: 20))
     }
     
     func labelStyle() -> Text {
 
        return foregroundColor(Color("LightBlack"))
-                .font(.custom(Constants.mediumFont, size: 16))
+                .font(.custom(Fonts.medium, size: 16))
     }
 
     func valueStyle() -> Text {
 
         return foregroundColor(Color.blue)
-                .font(.custom(Constants.mediumFont, size: 16))
+                .font(.custom(Fonts.medium, size: 16))
     }
 
     func errorValueStyle() -> Text {
 
         return foregroundColor(Color.red)
-                .font(.custom(Constants.mediumFont, size: 16))
+                .font(.custom(Fonts.medium, size: 16))
     }
 }
 

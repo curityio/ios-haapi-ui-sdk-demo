@@ -20,25 +20,44 @@
 		<string>Primary</string>
 		<key>minHeight</key>
 		<integer>48</integer>
-        <key>textAppearance</key>
+		<key>textAppearance</key>
         <string>TextAppearance.Body.Bold</string>
+	</dict>
+	<key>TextAppearance.Body.Bold</key>
+	<dict>
+		<key>fontStyleName</key>
+		<string>UICTFontTextStyleBody</string>
+		<key>fontSymbolicTrait</key>
+		<string>traitMonoSpace</string>
+		<key>textAlignment</key>
+		<string>right</string>
 	</dict>
 	<key>ActionableButton.LinkView</key>
 	<dict>
 		<key>textColorName</key>
 		<string>Secondary</string>
+		<key>textAppearance</key>
+        <string>TextAppearance.Link</string>
 	</dict>
-	<key>UICTFontTextStyleLink</key>
-	<integer>8</integer>
-    
-    <key>TextAppearance.Body.Bold</key>
+	<key>TextAppearance.Link</key>
 	<dict>
 		<key>fontStyleName</key>
-		<string>UICTFontTextStyleBody</string>
+		<string>UICTFontTextStyleLink</string>
 		<key>fontSymbolicTrait</key>
-		<string>traitBold</string>
+		<string>traitMonoSpace</string>
 		<key>textAlignment</key>
-		<string>natural</string>
+		<string>right</string>
+	</dict>
+	<key>UICTFontTextStyleBody</key>
+	<integer>16</integer>
+	<key>UICTFontTextStyleLink</key>
+	<integer>16</integer>
+	<key>UICTFontTextStyleText</key>
+	<integer>16</integer>
+	<key>HeaderView</key>
+	<dict>
+		<key>backgroundColorName</key>
+		<string>Background</string>
 	</dict>
 </dict>
 </plist>
