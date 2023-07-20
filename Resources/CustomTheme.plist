@@ -6,6 +6,8 @@
 	<dict>
 		<key>imageName</key>
 		<string>example_logo</string>
+		<key>backgroundColorName</key>
+		<string>Background</string>
 	</dict>
 	<key>fontName</key>
 	<string>IBMPlexMono</string>
@@ -54,10 +56,5 @@
 	<integer>16</integer>
 	<key>UICTFontTextStyleText</key>
 	<integer>16</integer>
-	<key>HeaderView</key>
-	<dict>
-		<key>backgroundColorName</key>
-		<string>Background</string>
-	</dict>
 </dict>
 </plist>
