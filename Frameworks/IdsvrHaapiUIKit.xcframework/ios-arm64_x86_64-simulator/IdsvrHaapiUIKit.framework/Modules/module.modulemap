@@ -1,0 +1,11 @@
+framework module IdsvrHaapiUIKit {
+  umbrella header "IdsvrHaapiUIKit.h"
+
+  export *
+  module * { export * }
+}
+
+module IdsvrHaapiUIKit.Swift {
+  header "IdsvrHaapiUIKit-Swift.h"
+  requires objc
+}

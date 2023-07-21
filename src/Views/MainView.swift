@@ -18,9 +18,9 @@ import SwiftUI
 import IdsvrHaapiUIKit
 
 struct MainView: View {
-
-    private let haapiApplication: HaapiUIKitApplication
     
+    private let haapiApplication: HaapiUIKitApplication
+
     @ObservedObject private var loginState: LoginState
 
     init(haapiApplication: HaapiUIKitApplication, loginState: LoginState) {
@@ -43,6 +43,6 @@ struct MainView: View {
                 AuthenticatedView(loginState: self.loginState)
             }
         }
-        .background(Color("Background"))
+        .background(Color("ViewBackground"))
     }
 }

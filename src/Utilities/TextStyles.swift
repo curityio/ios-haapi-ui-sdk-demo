@@ -20,19 +20,19 @@ extension Text {
     
     func titleStyle() -> Text {
 
-        return foregroundColor(Color.black)
+        return foregroundColor(Color("GeneralText"))
                 .font(.custom(Fonts.regular, size: 40))
     }
 
     func headingStyle() -> Text {
 
-        return foregroundColor(Color.black)
+        return foregroundColor(Color("GeneralText"))
                 .font(.custom(Fonts.bold, size: 20))
     }
     
     func labelStyle() -> Text {
 
-       return foregroundColor(Color("LightBlack"))
+       return foregroundColor(Color("GeneralText"))
                 .font(.custom(Fonts.medium, size: 16))
     }
 

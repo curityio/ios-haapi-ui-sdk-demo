@@ -115,7 +115,6 @@ struct AuthenticatedView: View {
             urlRequest.httpMethod = "GET"
             urlRequest.addValue("bearer \(accessToken)", forHTTPHeaderField: "Authorization")
             
-            
             let urlSession = URLSession(configuration: .haapi,
                                         delegate: TrustAllCertsDelegate(),
                                         delegateQueue: nil)

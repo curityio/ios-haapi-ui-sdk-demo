@@ -14,10 +14,10 @@
 		282A70F82A5D6A81000AE4FD /* DemoAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A70F72A5D6A81000AE4FD /* DemoAppDelegate.swift */; };
 		282A70FD2A5D7664000AE4FD /* TrustAllCertsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A70FC2A5D7664000AE4FD /* TrustAllCertsDelegate.swift */; };
 		287C37C62A66E08600385838 /* CustomTheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 287C37C52A66E08600385838 /* CustomTheme.plist */; };
-		287C37C82A67FF4C00385838 /* IdsvrHaapiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287C37C72A67FF4C00385838 /* IdsvrHaapiUIKit.xcframework */; };
 		287C382F2A6836FE00385838 /* IBMPlexMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C382C2A6836FE00385838 /* IBMPlexMono-Regular.ttf */; };
 		287C38312A6836FE00385838 /* IBMPlexMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C382E2A6836FE00385838 /* IBMPlexMono-Medium.ttf */; };
 		287C38412A68395100385838 /* IBMPlexMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C383F2A68395100385838 /* IBMPlexMono-Bold.ttf */; };
+		287EE0C52A6A8A8E00B628F1 /* IdsvrHaapiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287EE0C42A6A8A8E00B628F1 /* IdsvrHaapiUIKit.xcframework */; };
 		28C9FD672A6526FD00902F08 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD662A6526FD00902F08 /* AuthenticatedView.swift */; };
 		28C9FD6B2A65278800902F08 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD6A2A65278800902F08 /* MainView.swift */; };
 		28C9FD6F2A65315400902F08 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD6E2A65315400902F08 /* LoginState.swift */; };
@@ -53,11 +53,11 @@
 		282A70F72A5D6A81000AE4FD /* DemoAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppDelegate.swift; sourceTree = "<group>"; };
 		282A70FC2A5D7664000AE4FD /* TrustAllCertsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustAllCertsDelegate.swift; sourceTree = "<group>"; };
 		287C37C52A66E08600385838 /* CustomTheme.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CustomTheme.plist; sourceTree = "<group>"; };
-		287C37C72A67FF4C00385838 /* IdsvrHaapiUIKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = IdsvrHaapiUIKit.xcframework; path = "../../ios-cat/build/IdsvrHaapiUIKit.xcframework"; sourceTree = "<group>"; };
 		287C37E12A6805E500385838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		287C382C2A6836FE00385838 /* IBMPlexMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "IBMPlexMono-Regular.ttf"; path = "../../../../Desktop/plex/IBMPlexMono-Regular.ttf"; sourceTree = "<group>"; };
 		287C382E2A6836FE00385838 /* IBMPlexMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "IBMPlexMono-Medium.ttf"; path = "../../../../Desktop/plex/IBMPlexMono-Medium.ttf"; sourceTree = "<group>"; };
 		287C383F2A68395100385838 /* IBMPlexMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Bold.ttf"; sourceTree = "<group>"; };
+		287EE0C42A6A8A8E00B628F1 /* IdsvrHaapiUIKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = IdsvrHaapiUIKit.xcframework; sourceTree = "<group>"; };
 		28C9FD662A6526FD00902F08 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
 		28C9FD6A2A65278800902F08 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		28C9FD6E2A65315400902F08 /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				287C37C82A67FF4C00385838 /* IdsvrHaapiUIKit.xcframework in Frameworks */,
+				287EE0C52A6A8A8E00B628F1 /* IdsvrHaapiUIKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +116,7 @@
 		282A70F92A5D6AC0000AE4FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				287C37C72A67FF4C00385838 /* IdsvrHaapiUIKit.xcframework */,
+				287EE0C42A6A8A8E00B628F1 /* IdsvrHaapiUIKit.xcframework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
