@@ -20,7 +20,7 @@ import IdsvrHaapiUIKit
 class DemoAppDelegate: NSObject, UIApplicationDelegate {
 
     var haapiUIKitApplication: HaapiUIKitApplication!
-    var loginState: LoginState!
+    var oauthState: OAuthStateModel!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -46,7 +46,7 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
             .setThemingPlistFileName("CustomTheme")
             .build()
 
-        self.loginState = LoginState()
+        self.oauthState = OAuthStateModel()
         return true
     }
 }

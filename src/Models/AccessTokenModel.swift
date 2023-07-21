@@ -14,26 +14,19 @@
 // limitations under the License.
 //
 
-import SwiftUI
+import Foundation
 import IdsvrHaapiUIKit
 
-@main
-struct DemoApp: App {
-    
-    @UIApplicationDelegateAdaptor(DemoAppDelegate.self) var appDelegate
+class AccessTokenModel: ObservableObject {
 
-    var body: some Scene {
-        WindowGroup {
-            MainView(
-                haapiApplication: appDelegate.haapiUIKitApplication,
-                oauthState: appDelegate.oauthState)
-                    .onOpenURL(perform: handleUrl(url:))
-        }
-    }
+    @Published var tokenType: String
+    @Published var scope: String
+    @Published var expiresIn: String
     
-    func handleUrl(url: URL) {
-        if HaapiDeepLinkManager.shared.canHandleUrl(url) {
-            HaapiDeepLinkManager.shared.handleUrl(url)
-        }
+    init(tokens: OAuthTokenModel?) {
+
+        self.tokenType = tokens?.tokenType ?? ""
+        self.scope     = tokens?.scope ?? ""
+        self.expiresIn =  String(tokens?.expiresIn ?? 0)
     }
 }

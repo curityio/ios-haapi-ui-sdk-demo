@@ -21,11 +21,11 @@ struct MainView: View {
     
     private let haapiApplication: HaapiUIKitApplication
 
-    @ObservedObject private var loginState: LoginState
+    @ObservedObject private var oauthState: OAuthStateModel
 
-    init(haapiApplication: HaapiUIKitApplication, loginState: LoginState) {
+    init(haapiApplication: HaapiUIKitApplication, oauthState: OAuthStateModel) {
         self.haapiApplication = haapiApplication
-        self.loginState = loginState
+        self.oauthState = oauthState
     }
 
     var body: some View {
@@ -37,11 +37,11 @@ struct MainView: View {
                     .padding(.top, 20)
                     .padding(.leading, 20)
 
-            if (self.loginState.tokens == nil) {
-                UnauthenticatedView(haapiApplication: self.haapiApplication, loginState: self.loginState)
+            if self.oauthState.tokens == nil {
+                UnauthenticatedView(haapiApplication: self.haapiApplication, oauthState: self.oauthState)
                 
             } else {
-                AuthenticatedView(loginState: self.loginState)
+                AuthenticatedView(oauthState: self.oauthState)
             }
         }
         .background(Color("ViewBackground"))

@@ -30,6 +30,12 @@ extension Text {
                 .font(.custom(Fonts.bold, size: 20))
     }
     
+    func subHeadingStyle() -> Text {
+
+        return foregroundColor(Color("GeneralText"))
+                .font(.custom(Fonts.medium, size: 20))
+    }
+    
     func labelStyle() -> Text {
 
        return foregroundColor(Color("GeneralText"))

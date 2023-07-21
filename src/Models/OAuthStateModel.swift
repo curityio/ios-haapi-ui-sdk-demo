@@ -16,18 +16,20 @@
 
 import IdsvrHaapiUIKit
 
-class LoginState: ObservableObject {
+class OAuthStateModel: ObservableObject {
     
     @Published var isLoggingIn: Bool = false
     @Published var tokens: OAuthTokenModel? = nil
-    @Published var userName: String? = nil
+    @Published var accessTokenModel: AccessTokenModel? = nil
+    @Published var userInfo: UserInfoModel? = nil
 
     func updateFromLoginResponse(tokens: OAuthTokenModel) {
         self.tokens = tokens
+        self.accessTokenModel = AccessTokenModel(tokens: tokens)
     }
-    
-    func updateFromUserInfoResponse(userName: String) {
-        self.userName = userName
+
+    func updateFromUserInfoResponse(userInfo: Dictionary<String, Any>) {
+        self.userInfo = UserInfoModel(data: userInfo)
     }
 
     func updateFromTokenRefreshSuccessResponse(tokenResponse: SuccessfulTokenResponse) {
@@ -39,10 +41,12 @@ class LoginState: ObservableObject {
             expiresIn: tokenResponse.expiresIn,
             refreshToken: tokenResponse.refreshToken,
             idToken: tokenResponse.idToken ?? self.tokens?.idToken)
+        
+        self.accessTokenModel = AccessTokenModel(tokens: self.tokens)
     }
 
     func clear() {
         self.tokens = nil
-        self.userName = nil
+        self.userInfo = nil
     }
 }

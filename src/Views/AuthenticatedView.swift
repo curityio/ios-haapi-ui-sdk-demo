@@ -2,78 +2,88 @@ import SwiftUI
 
 struct AuthenticatedView: View {
     
-    @ObservedObject private var loginState: LoginState
+    @ObservedObject private var oauthState: OAuthStateModel
     @State private var error: ApplicationError? = nil
 
-    init(loginState: LoginState) {
-        self.loginState = loginState
+    init(oauthState: OAuthStateModel) {
+        self.oauthState = oauthState
     }
 
     var body: some View {
         
-        let refreshEnabled = self.loginState.tokens?.refreshToken != nil
-        let signOutEnabled = self.loginState.tokens?.idToken != nil
+        let refreshEnabled = self.oauthState.tokens?.refreshToken != nil
+        let signOutEnabled = self.oauthState.tokens?.idToken != nil
         
-        return VStack {
-            
-            if self.error == nil {
-                Text("authenticated_message")
-                    .headingStyle()
-                    .padding(.top, 20)
-            } else {
-                ErrorView(error: self.error!)
-                    .padding(.top, 20)
-            }
-            
+        return ScrollView {
             VStack {
-                ExpanderView(label: Text("User Info").headingStyle()) {
-                    Text(self.loginState.userName ?? "").valueStyle()
-                }.padding(.top, 20)
                 
-                ExpanderView(label: Text("Access token").headingStyle()) {
-                    Text(self.loginState.tokens?.accessToken ?? "").valueStyle()
-                }.padding(.top, 20)
+                if self.error == nil {
+                    Text("authenticated_message")
+                        .headingStyle()
+                        .padding(.top, 20)
+                } else {
+                    ErrorView(error: self.error!)
+                        .padding(.top, 20)
+                }
                 
-                ExpanderView(label: Text("ID token").headingStyle()) {
-                    Text(self.loginState.tokens?.idToken ?? "").valueStyle()
-                }.padding(.top, 20)
-                
-                ExpanderView(label: Text("Refresh token").headingStyle()) {
-                    Text(self.loginState.tokens?.refreshToken ?? "").valueStyle()
-                }.padding(.top, 20)
-            }
+                VStack {
+                    ExpanderView(label: Text("User Info").subHeadingStyle()) {
+                        if self.oauthState.userInfo != nil {
+                            UserInfoView(model: self.oauthState.userInfo!)
+                        }
+                    }
+                    .padding(.top, 20)
+                    
+                    ExpanderView(label: Text("Access token").subHeadingStyle(), expanded: true) {
+                        VStack {
+                            Text(self.oauthState.tokens?.accessToken ?? "").valueStyle()
+                            if self.oauthState.tokens != nil {
+                                AccessTokenView(model: AccessTokenModel(tokens: self.oauthState.tokens!))
+                            }
+                        }
+                    }
+                    .padding(.top, 20)
+                    
+                    ExpanderView(label: Text("ID token").subHeadingStyle()) {
+                        Text(self.oauthState.tokens?.idToken ?? "").valueStyle()
+                    }
+                    .padding(.top, 20)
+                    
+                    ExpanderView(label: Text("Refresh token").subHeadingStyle()) {
+                        Text(self.oauthState.tokens?.refreshToken ?? "").valueStyle()
+                    }
+                    .padding(.top, 20)
+                }
                 .padding(.leading, 50)
                 .padding(.trailing, 50)
-            
-            Button(action: self.refreshAccessToken) {
-               Text("refresh_access_token")
-            }
+                
+                Button(action: self.refreshAccessToken) {
+                    Text("refresh_access_token")
+                }
                 .padding(.top, 20)
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
                 .buttonStyle(CustomButtonStyle(disabled: !refreshEnabled))
                 .disabled(!refreshEnabled)
-            
-            Button(action: self.loginState.clear) {
-               Text("sign_out")
-            }
-                .padding(.top, 20)
+                
+                Button(action: self.oauthState.clear) {
+                    Text("sign_out")
+                }
+                .padding(.top, 5)
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
                 .buttonStyle(CustomButtonStyle(disabled: !signOutEnabled))
                 .disabled(!signOutEnabled)
-
-            Spacer()
-        }
+                
+                Spacer()
+            }
             .onAppear(perform: self.fetchUserInfo)
+        }
     }
     
     private func fetchUserInfo() {
         
-        if (self.loginState.userName != nil) {
-            return
-        }
-        guard let accessToken = self.loginState.tokens?.accessToken else {
+        guard let accessToken = self.oauthState.tokens?.accessToken else {
             return
         }
         
@@ -110,12 +120,8 @@ struct AuthenticatedView: View {
                         self.error = ApplicationError(title: "User Info Error", description: "Unable to deserialize user info")
                         return
                     }
-
-                    let givenName = userInfo["given_name"] as? String
-                    let familyName = userInfo["family_name"] as? String
-                    if (givenName != nil && familyName != nil) {
-                        self.loginState.updateFromUserInfoResponse(userName: "\(givenName!) \(familyName!)")
-                    }
+                    
+                    self.oauthState.updateFromUserInfoResponse(userInfo: userInfo)
                 }
             }
             .resume()
@@ -124,9 +130,8 @@ struct AuthenticatedView: View {
 
     private func refreshAccessToken() {
         
-        guard let refreshToken = self.loginState.tokens?.refreshToken else { return }
+        guard let refreshToken = self.oauthState.tokens?.refreshToken else { return }
 
-        fetchUserInfo()
         DispatchQueue.global().async {
 
             let errorTitle = "Token Refresh Error"
@@ -137,7 +142,7 @@ struct AuthenticatedView: View {
                     
                 case .successfulToken(let successfulTokenResponse):
                     DispatchQueue.main.async {
-                        self.loginState.updateFromTokenRefreshSuccessResponse(tokenResponse: successfulTokenResponse)
+                        self.oauthState.updateFromTokenRefreshSuccessResponse(tokenResponse: successfulTokenResponse)
                     }
                     
                 case .errorToken(let errorResponse):

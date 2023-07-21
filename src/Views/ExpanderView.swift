@@ -22,14 +22,15 @@ public struct ExpanderView <Content, Label> : View
     public var label: Label
     public var content: () -> Content
     
-    @State private var expanded: Bool = false
+    @State private var expanded: Bool
 
-    public init(label: Label, @ViewBuilder content: @escaping () -> Content)
+    public init(label: Label, expanded: Bool = false, @ViewBuilder content: @escaping () -> Content)
     {
         self.label = label
         self.content = content
+        _expanded = State(initialValue: expanded)
     }
-    
+
     public var body: some View {
         VStack {
             expanderButton

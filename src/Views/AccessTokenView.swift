@@ -15,25 +15,31 @@
 //
 
 import SwiftUI
-import IdsvrHaapiUIKit
 
-@main
-struct DemoApp: App {
+struct AccessTokenView: View {
     
-    @UIApplicationDelegateAdaptor(DemoAppDelegate.self) var appDelegate
-
-    var body: some Scene {
-        WindowGroup {
-            MainView(
-                haapiApplication: appDelegate.haapiUIKitApplication,
-                oauthState: appDelegate.oauthState)
-                    .onOpenURL(perform: handleUrl(url:))
-        }
+    @ObservedObject var model: AccessTokenModel
+    
+    init(model: AccessTokenModel) {
+        self.model = model
     }
-    
-    func handleUrl(url: URL) {
-        if HaapiDeepLinkManager.shared.canHandleUrl(url) {
-            HaapiDeepLinkManager.shared.handleUrl(url)
+
+    var body: some View {
+        
+        return VStack {
+            
+            HStack {
+                Text("token_type")
+                Text(model.tokenType)
+            }
+            HStack {
+                Text("scope")
+                Text(model.scope)
+            }
+            HStack {
+                Text("expires_in")
+                Text(model.expiresIn)
+            }
         }
     }
 }

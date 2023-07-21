@@ -21,14 +21,14 @@ struct UnauthenticatedView: View, HaapiFlowResult {
     
     private let haapiApplication: HaapiUIKitApplication
 
-    @ObservedObject private var loginState: LoginState
+    @ObservedObject private var oauthState: OAuthStateModel
     @State private var error: ApplicationError? = nil
     
     @State private var isDisclosed = false
     
-    init(haapiApplication: HaapiUIKitApplication, loginState: LoginState) {
+    init(haapiApplication: HaapiUIKitApplication, oauthState: OAuthStateModel) {
         self.haapiApplication = haapiApplication
-        self.loginState = loginState
+        self.oauthState = oauthState
     }
     
     var body: some View {
@@ -51,7 +51,7 @@ struct UnauthenticatedView: View, HaapiFlowResult {
                 .padding(.top, 20)
             
             Button {
-                self.loginState.isLoggingIn = true
+                self.oauthState.isLoggingIn = true
             } label: {
                 Text("start_authentication")
             }
@@ -62,7 +62,7 @@ struct UnauthenticatedView: View, HaapiFlowResult {
             
             Spacer()
         }
-        .sheet(isPresented: $loginState.isLoggingIn) {
+        .sheet(isPresented: $oauthState.isLoggingIn) {
             
             HaapiFlow.start(
                 self,
@@ -72,14 +72,14 @@ struct UnauthenticatedView: View, HaapiFlowResult {
     }
 
     func didReceiveOAuthTokenModel(_ tokens: IdsvrHaapiUIKit.OAuthTokenModel) {
-        self.loginState.isLoggingIn = false
-        self.loginState.updateFromLoginResponse(tokens: tokens)
+        self.oauthState.isLoggingIn = false
+        self.oauthState.updateFromLoginResponse(tokens: tokens)
         self.error = nil
     }
 
     func didReceiveError(_ error: Error) {
-        self.loginState.isLoggingIn = false
-        self.loginState.clear()
+        self.oauthState.isLoggingIn = false
+        self.oauthState.clear()
         self.error = ApplicationError(title: "HAAPI Login Error", description: error.localizedDescription)
     }
 }
