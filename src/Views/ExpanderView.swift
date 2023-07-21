@@ -35,9 +35,13 @@ public struct ExpanderView <Content, Label> : View
         VStack {
             expanderButton
             if expanded {
-                content()
+                content().padding(5)
             }
         }
+        .overlay(
+            RoundedRectangle(cornerRadius: 5)
+                .stroke(Color("GeneralText"), lineWidth: 0.5)
+        )
     }
     
     private var expanderButton: some View {
@@ -69,7 +73,8 @@ public struct ExpanderView <Content, Label> : View
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(Color("Secondary"))
                 }
-            }
+
+            }.padding(5)
         }
     }
 }

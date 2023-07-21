@@ -26,19 +26,47 @@ struct AccessTokenView: View {
 
     var body: some View {
         
+        let fontSize: CGFloat = 14
+        let deviceWidth = UIScreen.main.bounds.size.width
+        let paddingWidth = deviceWidth / 12
+        let frameWidth = deviceWidth / 3
+
         return VStack {
             
             HStack {
-                Text("token_type")
+                Text("token_type:")
+                    .labelStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
+                
                 Text(model.tokenType)
+                    .valueStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
             }
+            
             HStack {
-                Text("scope")
+                Text("scope:")
+                    .labelStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
+                
                 Text(model.scope)
+                    .valueStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
             }
+            
             HStack {
-                Text("expires_in")
+                Text("expires_in:")
+                    .labelStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
+        
                 Text(model.expiresIn)
+                    .valueStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
             }
         }
     }

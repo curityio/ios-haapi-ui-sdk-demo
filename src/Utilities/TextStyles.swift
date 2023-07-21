@@ -24,34 +24,34 @@ extension Text {
                 .font(.custom(Fonts.regular, size: 40))
     }
 
-    func headingStyle() -> Text {
+    func headingStyle(size: CGFloat = 20) -> Text {
 
         return foregroundColor(Color("GeneralText"))
-                .font(.custom(Fonts.bold, size: 20))
+                .font(.custom(Fonts.bold, size: size))
     }
     
-    func subHeadingStyle() -> Text {
+    func subHeadingStyle(size: CGFloat = 20) -> Text {
 
         return foregroundColor(Color("GeneralText"))
-                .font(.custom(Fonts.medium, size: 20))
+                .font(.custom(Fonts.medium, size: size))
     }
     
-    func labelStyle() -> Text {
+    func labelStyle(size: CGFloat = 16) -> Text {
 
        return foregroundColor(Color("GeneralText"))
-                .font(.custom(Fonts.medium, size: 16))
+                .font(.custom(Fonts.medium, size: size))
     }
 
-    func valueStyle() -> Text {
+    func valueStyle(size: CGFloat = 16) -> Text {
 
         return foregroundColor(Color.blue)
-                .font(.custom(Fonts.medium, size: 16))
+                .font(.custom(Fonts.medium, size: size))
     }
 
-    func errorValueStyle() -> Text {
+    func errorValueStyle(size: CGFloat = 16) -> Text {
 
         return foregroundColor(Color.red)
-                .font(.custom(Fonts.medium, size: 16))
+                .font(.custom(Fonts.medium, size: size))
     }
 }
 

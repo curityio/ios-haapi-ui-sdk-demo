@@ -39,6 +39,7 @@ struct AuthenticatedView: View {
                             Text(self.oauthState.tokens?.accessToken ?? "").valueStyle()
                             if self.oauthState.tokens != nil {
                                 AccessTokenView(model: AccessTokenModel(tokens: self.oauthState.tokens!))
+                                    .padding(.top, 10)
                             }
                         }
                     }
@@ -54,8 +55,8 @@ struct AuthenticatedView: View {
                     }
                     .padding(.top, 20)
                 }
-                .padding(.leading, 50)
-                .padding(.trailing, 50)
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
                 
                 Button(action: self.refreshAccessToken) {
                     Text("refresh_access_token")

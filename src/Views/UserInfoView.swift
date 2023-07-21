@@ -25,28 +25,69 @@ struct UserInfoView: View {
     }
 
     var body: some View {
+
+        let fontSize: CGFloat = 14
+        let deviceWidth = UIScreen.main.bounds.size.width
+        let paddingWidth = deviceWidth / 12
+        let frameWidth = deviceWidth / 3
         
         return VStack {
             
             HStack {
-                Text("sub")
+                Text("sub:")
+                    .labelStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
+   
                 Text(model.sub)
+                    .valueStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
             }
+            
             HStack {
-                Text("given_name")
+                Text("given_name:")
+                    .labelStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
+
                 Text(model.givenName)
+                    .valueStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
             }
             HStack {
-                Text("family_name")
+                Text("family_name:")
+                    .labelStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
+
                 Text(model.familyName)
+                    .valueStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
             }
             HStack {
-                Text("preferred_username")
+                Text("preferred_username:")
+                    .labelStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
+
                 Text(model.preferredUsernane)
+                    .valueStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
             }
             HStack {
-                Text("updated_at")
+                Text("updated_at:")
+                    .labelStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
+
                 Text(model.updatedAt)
+                    .valueStyle(size: fontSize)
+                    .frame(width: frameWidth, alignment: .leading)
+                    .padding(.leading, paddingWidth)
             }
         }
     }
