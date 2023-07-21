@@ -36,7 +36,7 @@ struct AuthenticatedView: View {
             
             if self.error == nil {
                 Text("authenticated_message")
-                    .labelStyle()
+                    .headingStyle()
                     .padding(.top, 20)
             } else {
                 ErrorView(error: self.error!)

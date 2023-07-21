@@ -27,7 +27,7 @@ extension Text {
     func headingStyle() -> Text {
 
         return foregroundColor(Color("GeneralText"))
-                .font(.custom(Fonts.bold, size: 20))
+                .font(.custom(Fonts.bold, size: 24))
     }
     
     func labelStyle() -> Text {
