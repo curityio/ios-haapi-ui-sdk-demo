@@ -18,7 +18,8 @@
 		287C38312A6836FE00385838 /* IBMPlexMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C382E2A6836FE00385838 /* IBMPlexMono-Medium.ttf */; };
 		287C38412A68395100385838 /* IBMPlexMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287C383F2A68395100385838 /* IBMPlexMono-Bold.ttf */; };
 		287EE0C72A6A95D500B628F1 /* IdsvrHaapiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287EE0C62A6A95D500B628F1 /* IdsvrHaapiUIKit.xcframework */; };
-		28C9FD672A6526FD00902F08 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD662A6526FD00902F08 /* AuthenticatedView.swift */; };
+		287EE0C92A6A9A0F00B628F1 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EE0C82A6A9A0F00B628F1 /* AuthenticatedView.swift */; };
+		287EE0CB2A6AAE3500B628F1 /* ExpanderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EE0CA2A6AAE3500B628F1 /* ExpanderView.swift */; };
 		28C9FD6B2A65278800902F08 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD6A2A65278800902F08 /* MainView.swift */; };
 		28C9FD6F2A65315400902F08 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD6E2A65315400902F08 /* LoginState.swift */; };
 		28C9FD712A6537D900902F08 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD702A6537D900902F08 /* TextStyles.swift */; };
@@ -58,7 +59,8 @@
 		287C382E2A6836FE00385838 /* IBMPlexMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "IBMPlexMono-Medium.ttf"; path = "../../../../Desktop/plex/IBMPlexMono-Medium.ttf"; sourceTree = "<group>"; };
 		287C383F2A68395100385838 /* IBMPlexMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Bold.ttf"; sourceTree = "<group>"; };
 		287EE0C62A6A95D500B628F1 /* IdsvrHaapiUIKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = IdsvrHaapiUIKit.xcframework; path = "../../ios-cat/build/IdsvrHaapiUIKit.xcframework"; sourceTree = "<group>"; };
-		28C9FD662A6526FD00902F08 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
+		287EE0C82A6A9A0F00B628F1 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
+		287EE0CA2A6AAE3500B628F1 /* ExpanderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpanderView.swift; sourceTree = "<group>"; };
 		28C9FD6A2A65278800902F08 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		28C9FD6E2A65315400902F08 /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		28C9FD702A6537D900902F08 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
@@ -147,8 +149,9 @@
 			children = (
 				28C9FD6A2A65278800902F08 /* MainView.swift */,
 				282A70EB2A5D694C000AE4FD /* UnauthenticatedView.swift */,
-				28C9FD662A6526FD00902F08 /* AuthenticatedView.swift */,
+				287EE0C82A6A9A0F00B628F1 /* AuthenticatedView.swift */,
 				28C9FD7D2A65405500902F08 /* ErrorView.swift */,
+				287EE0CA2A6AAE3500B628F1 /* ExpanderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -250,12 +253,13 @@
 				28C9FD862A657A2700902F08 /* Configuration.swift in Sources */,
 				28C9FD6F2A65315400902F08 /* LoginState.swift in Sources */,
 				28C9FD802A654DC000902F08 /* OAuthTokenManagerAccessor.swift in Sources */,
-				28C9FD672A6526FD00902F08 /* AuthenticatedView.swift in Sources */,
+				287EE0C92A6A9A0F00B628F1 /* AuthenticatedView.swift in Sources */,
 				28C9FD6B2A65278800902F08 /* MainView.swift in Sources */,
 				282A70F82A5D6A81000AE4FD /* DemoAppDelegate.swift in Sources */,
 				28C9FD7E2A65405500902F08 /* ErrorView.swift in Sources */,
 				28C9FD712A6537D900902F08 /* TextStyles.swift in Sources */,
 				282A70FD2A5D7664000AE4FD /* TrustAllCertsDelegate.swift in Sources */,
+				287EE0CB2A6AAE3500B628F1 /* ExpanderView.swift in Sources */,
 				28C9FD822A65560800902F08 /* OAuthTokens.swift in Sources */,
 				282A70EC2A5D694C000AE4FD /* UnauthenticatedView.swift in Sources */,
 				282A70EA2A5D694C000AE4FD /* DemoApp.swift in Sources */,

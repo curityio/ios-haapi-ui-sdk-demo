@@ -24,6 +24,8 @@ struct UnauthenticatedView: View, HaapiFlowResult {
     @ObservedObject private var loginState: LoginState
     @State private var error: ApplicationError? = nil
     
+    @State private var isDisclosed = false
+    
     init(haapiApplication: HaapiUIKitApplication, loginState: LoginState) {
         self.haapiApplication = haapiApplication
         self.loginState = loginState
@@ -43,7 +45,7 @@ struct UnauthenticatedView: View, HaapiFlowResult {
                 ErrorView(error: self.error!)
                     .padding(.top, 20)
             }
-                        
+            
             Image("StartIllustration")
                 .aspectRatio(contentMode: .fit)
                 .padding(.top, 20)
@@ -53,10 +55,10 @@ struct UnauthenticatedView: View, HaapiFlowResult {
             } label: {
                 Text("start_authentication")
             }
-            .padding(.top, 20)
-            .padding(.leading, 20)
-            .padding(.trailing, 20)
-            .buttonStyle(CustomButtonStyle())
+                .padding(.top, 20)
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
+                .buttonStyle(CustomButtonStyle())
             
             Spacer()
         }

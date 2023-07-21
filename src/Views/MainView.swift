@@ -39,6 +39,7 @@ struct MainView: View {
 
             if (self.loginState.tokens == nil) {
                 UnauthenticatedView(haapiApplication: self.haapiApplication, loginState: self.loginState)
+                
             } else {
                 AuthenticatedView(loginState: self.loginState)
             }
