@@ -45,7 +45,7 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
         self.haapiUIKitApplication = HaapiUIKitApplicationBuilder(haapiUIKitConfiguration: haapiUIKitConfiguration)
             .setThemingPlistFileName("CustomTheme")
             .build()
-
+        
         self.oauthState = OAuthStateModel()
         return true
     }

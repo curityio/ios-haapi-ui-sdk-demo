@@ -1,18 +1,22 @@
 import SwiftUI
+import IdsvrHaapiUIKit
 
-struct AuthenticatedView: View {
+struct AuthenticatedView: View, HaapiFlowResult {
     
+    private let haapiApplication: HaapiUIKitApplication
+
     @ObservedObject private var oauthState: OAuthStateModel
     @State private var error: ApplicationError? = nil
 
-    init(oauthState: OAuthStateModel) {
+    init(haapiApplication: HaapiUIKitApplication, oauthState: OAuthStateModel) {
+        self.haapiApplication = haapiApplication
         self.oauthState = oauthState
     }
 
     var body: some View {
         
-        let refreshEnabled = self.oauthState.tokens?.refreshToken != nil
-        let signOutEnabled = self.oauthState.tokens?.idToken != nil
+        let refreshEnabled = self.oauthState.refreshToken != nil
+        let signOutEnabled = self.oauthState.idToken != nil
         
         return ScrollView {
             VStack {
@@ -36,9 +40,9 @@ struct AuthenticatedView: View {
                     
                     ExpanderView(label: Text("Access token").subHeadingStyle(), expanded: true) {
                         VStack {
-                            Text(self.oauthState.tokens?.accessToken ?? "").valueStyle()
-                            if self.oauthState.tokens != nil {
-                                AccessTokenView(model: AccessTokenModel(tokens: self.oauthState.tokens!))
+                            Text(self.oauthState.accessToken ?? "").valueStyle()
+                            if self.oauthState.accessToken != nil {
+                                AccessTokenView(model: self.oauthState.accessTokenModel!)
                                     .padding(.top, 10)
                             }
                         }
@@ -46,12 +50,12 @@ struct AuthenticatedView: View {
                     .padding(.top, 20)
                     
                     ExpanderView(label: Text("ID token").subHeadingStyle()) {
-                        Text(self.oauthState.tokens?.idToken ?? "").valueStyle()
+                        Text(self.oauthState.idToken ?? "").valueStyle()
                     }
                     .padding(.top, 20)
                     
                     ExpanderView(label: Text("Refresh token").subHeadingStyle()) {
-                        Text(self.oauthState.tokens?.refreshToken ?? "").valueStyle()
+                        Text(self.oauthState.refreshToken ?? "").valueStyle()
                     }
                     .padding(.top, 20)
                 }
@@ -84,7 +88,7 @@ struct AuthenticatedView: View {
     
     private func fetchUserInfo() {
         
-        guard let accessToken = self.oauthState.tokens?.accessToken else {
+        guard let accessToken = self.oauthState.accessToken else {
             return
         }
         
@@ -128,35 +132,36 @@ struct AuthenticatedView: View {
             .resume()
         }
     }
-
-    private func refreshAccessToken() {
+    
+    func refreshAccessToken() {
         
-        guard let refreshToken = self.oauthState.tokens?.refreshToken else { return }
-
-        DispatchQueue.global().async {
-
-            let errorTitle = "Token Refresh Error"
-            let oauthTokenManager = OAuthTokenManagerAccessor().get()
-            oauthTokenManager.refreshAccessToken(with: refreshToken) { response in
-                
-                switch response {
-                    
-                case .successfulToken(let successfulTokenResponse):
-                    DispatchQueue.main.async {
-                        self.oauthState.updateFromTokenRefreshSuccessResponse(tokenResponse: successfulTokenResponse)
-                    }
-                    
-                case .errorToken(let errorResponse):
-                    DispatchQueue.main.async {
-                        self.error = ApplicationError(title: errorTitle, description: errorResponse.errorDescription, code: errorResponse.error)
-                    }
-                    
-                case .error(let error):
-                    DispatchQueue.main.async {
-                        self.error = ApplicationError(title: errorTitle, description: error.localizedDescription)
-                    }
-                }
-            }
+        guard let refreshToken = self.oauthState.refreshToken else {
+            return
         }
+        
+        OAuthLifecycle.refreshToken(
+            refreshToken: refreshToken,
+            haapiUIKitApplication: self.haapiApplication,
+            haapiFlowResult: self
+        )
+        
+    }
+
+    func didReceiveOAuthModel(_ tokens: OAuthModel) {
+
+        guard let model = tokens as? OAuthTokenModel else {
+            self.error = ApplicationError(title: "HAAPI Token Refresh Error", description: "No tokens returned in token refresh response")
+            return
+        }
+        
+        self.oauthState.isLoggingIn = false
+        self.oauthState.updateFromTokenRefreshSuccessResponse(tokens: model)
+        self.error = nil
+    }
+
+    func didReceiveError(_ error: Error) {
+        self.oauthState.isLoggingIn = false
+        self.oauthState.clear()
+        self.error = ApplicationError(title: "HAAPI Token Refresh Error", description: error.localizedDescription)
     }
 }

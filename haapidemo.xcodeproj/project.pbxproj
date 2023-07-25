@@ -30,8 +30,6 @@
 		28C9FD732A65384400902F08 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28C9FD722A65384400902F08 /* Localizable.strings */; };
 		28C9FD752A65391C00902F08 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD742A65391C00902F08 /* CustomButtonStyle.swift */; };
 		28C9FD7E2A65405500902F08 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD7D2A65405500902F08 /* ErrorView.swift */; };
-		28C9FD802A654DC000902F08 /* OAuthTokenManagerAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD7F2A654DC000902F08 /* OAuthTokenManagerAccessor.swift */; };
-		28C9FD822A65560800902F08 /* OAuthTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD812A65560800902F08 /* OAuthTokens.swift */; };
 		28C9FD842A655ED400902F08 /* ApplicationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD832A655ED400902F08 /* ApplicationError.swift */; };
 		28C9FD862A657A2700902F08 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD852A657A2700902F08 /* Configuration.swift */; };
 /* End PBXBuildFile section */
@@ -75,8 +73,6 @@
 		28C9FD722A65384400902F08 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		28C9FD742A65391C00902F08 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		28C9FD7D2A65405500902F08 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		28C9FD7F2A654DC000902F08 /* OAuthTokenManagerAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTokenManagerAccessor.swift; sourceTree = "<group>"; };
-		28C9FD812A65560800902F08 /* OAuthTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTokens.swift; sourceTree = "<group>"; };
 		28C9FD832A655ED400902F08 /* ApplicationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationError.swift; sourceTree = "<group>"; };
 		28C9FD852A657A2700902F08 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,8 +155,6 @@
 				287EE0D22A6AE6FF00B628F1 /* AccessTokenModel.swift */,
 				28C9FD832A655ED400902F08 /* ApplicationError.swift */,
 				28C9FD6E2A65315400902F08 /* OAuthStateModel.swift */,
-				28C9FD812A65560800902F08 /* OAuthTokens.swift */,
-				28C9FD7F2A654DC000902F08 /* OAuthTokenManagerAccessor.swift */,
 				287EE0D02A6AE6F000B628F1 /* UserInfoModel.swift */,
 			);
 			path = Models;
@@ -273,7 +267,6 @@
 				28C9FD752A65391C00902F08 /* CustomButtonStyle.swift in Sources */,
 				28C9FD862A657A2700902F08 /* Configuration.swift in Sources */,
 				28C9FD6F2A65315400902F08 /* OAuthStateModel.swift in Sources */,
-				28C9FD802A654DC000902F08 /* OAuthTokenManagerAccessor.swift in Sources */,
 				287EE0C92A6A9A0F00B628F1 /* AuthenticatedView.swift in Sources */,
 				28C9FD6B2A65278800902F08 /* MainView.swift in Sources */,
 				287EE0D32A6AE6FF00B628F1 /* AccessTokenModel.swift in Sources */,
@@ -283,7 +276,6 @@
 				287EE0D52A6AE8FE00B628F1 /* UserInfoView.swift in Sources */,
 				282A70FD2A5D7664000AE4FD /* TrustAllCertsDelegate.swift in Sources */,
 				287EE0CB2A6AAE3500B628F1 /* ExpanderView.swift in Sources */,
-				28C9FD822A65560800902F08 /* OAuthTokens.swift in Sources */,
 				282A70EC2A5D694C000AE4FD /* UnauthenticatedView.swift in Sources */,
 				287EE0D82A6AED8B00B628F1 /* AccessTokenView.swift in Sources */,
 				282A70EA2A5D694C000AE4FD /* DemoApp.swift in Sources */,

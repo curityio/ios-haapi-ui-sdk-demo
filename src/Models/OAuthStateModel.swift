@@ -19,12 +19,16 @@ import IdsvrHaapiUIKit
 class OAuthStateModel: ObservableObject {
     
     @Published var isLoggingIn: Bool = false
-    @Published var tokens: OAuthTokenModel? = nil
+    @Published var accessToken: String? = nil
+    @Published var idToken: String? = nil
+    @Published var refreshToken: String? = nil
     @Published var accessTokenModel: AccessTokenModel? = nil
     @Published var userInfo: UserInfoModel? = nil
 
     func updateFromLoginResponse(tokens: OAuthTokenModel) {
-        self.tokens = tokens
+        self.accessToken = tokens.accessToken
+        self.idToken = tokens.idToken
+        self.refreshToken = tokens.refreshToken
         self.accessTokenModel = AccessTokenModel(tokens: tokens)
     }
 
@@ -32,21 +36,23 @@ class OAuthStateModel: ObservableObject {
         self.userInfo = UserInfoModel(data: userInfo)
     }
 
-    func updateFromTokenRefreshSuccessResponse(tokenResponse: SuccessfulTokenResponse) {
+    func updateFromTokenRefreshSuccessResponse(tokens: OAuthTokenModel) {
         
-        self.tokens = OAuthTokens(
-            accessToken: tokenResponse.accessToken,
-            tokenType: tokenResponse.tokenType,
-            scope: tokenResponse.scope,
-            expiresIn: tokenResponse.expiresIn,
-            refreshToken: tokenResponse.refreshToken,
-            idToken: tokenResponse.idToken ?? self.tokens?.idToken)
-        
-        self.accessTokenModel = AccessTokenModel(tokens: self.tokens)
+        self.accessToken = tokens.accessToken
+        if tokens.idToken != nil {
+            self.idToken = tokens.idToken
+        }
+        if tokens.refreshToken != nil {
+            self.refreshToken = tokens.refreshToken
+        }
+
+        self.accessTokenModel = AccessTokenModel(tokens: tokens)
     }
 
     func clear() {
-        self.tokens = nil
+        self.accessToken = nil
+        self.idToken = nil
+        self.refreshToken = nil
         self.userInfo = nil
     }
 }

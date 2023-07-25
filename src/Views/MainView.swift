@@ -37,11 +37,11 @@ struct MainView: View {
                     .padding(.top, 20)
                     .padding(.leading, 20)
 
-            if self.oauthState.tokens == nil {
+            if self.oauthState.accessToken == nil {
                 UnauthenticatedView(haapiApplication: self.haapiApplication, oauthState: self.oauthState)
                 
             } else {
-                AuthenticatedView(oauthState: self.oauthState)
+                AuthenticatedView(haapiApplication: self.haapiApplication, oauthState: self.oauthState)
             }
         }
         .background(Color("ViewBackground"))

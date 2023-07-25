@@ -7,6 +7,7 @@ This is an example iOS app that uses the Curity Identity Server's Hypermedia API
 Until the SDK is released, Curity employees can build this app via the following steps:
 
 - Build the pre-release frameworks according to [these instructions](https://stackoverflowteams.com/c/curity/questions/194)
+- Use this branch: feature/HSI-200-create-helper-for-oauthlifecycle-refreshtoken 
 - Drag the `build/IdsvrHaapiUIKit.xcframework` into the `Frameworks` folder
 
 To avoid `DYLD1 library missing` errors using the launch icon on a simulator I use the `Embed and Sign` option.\

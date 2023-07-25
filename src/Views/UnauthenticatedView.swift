@@ -18,13 +18,11 @@ import SwiftUI
 import IdsvrHaapiUIKit
 
 struct UnauthenticatedView: View, HaapiFlowResult {
-    
+
     private let haapiApplication: HaapiUIKitApplication
 
     @ObservedObject private var oauthState: OAuthStateModel
     @State private var error: ApplicationError? = nil
-    
-    @State private var isDisclosed = false
     
     init(haapiApplication: HaapiUIKitApplication, oauthState: OAuthStateModel) {
         self.haapiApplication = haapiApplication
@@ -64,16 +62,22 @@ struct UnauthenticatedView: View, HaapiFlowResult {
         }
         .sheet(isPresented: $oauthState.isLoggingIn) {
             
-            HaapiFlow.start(
-                self,
-                haapiUIKitApplication: self.haapiApplication,
-                haapiDeepLinkManageable: HaapiDeepLinkManager.shared)
+            /*try!*/ HaapiFlow.start(
+                    self,
+                    haapiUIKitApplication: self.haapiApplication,
+                    haapiDeepLinkManageable: HaapiDeepLinkManager.shared)
         }
     }
+    
+    func didReceiveOAuthModel(_ tokens: OAuthModel) {
 
-    func didReceiveOAuthTokenModel(_ tokens: IdsvrHaapiUIKit.OAuthTokenModel) {
+        guard let model = tokens as? OAuthTokenModel else {
+            self.error = ApplicationError(title: "HAAPI Login Error", description: "No tokens returned in login response")
+            return
+        }
+        
         self.oauthState.isLoggingIn = false
-        self.oauthState.updateFromLoginResponse(tokens: tokens)
+        self.oauthState.updateFromLoginResponse(tokens: model)
         self.error = nil
     }
 
