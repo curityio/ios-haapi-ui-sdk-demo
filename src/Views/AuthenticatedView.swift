@@ -142,7 +142,7 @@ struct AuthenticatedView: View, HaapiFlowResult {
         OAuthLifecycle.refreshToken(
             refreshToken: refreshToken,
             haapiUIKitApplication: self.haapiApplication,
-            haapiFlowResult: self
+            lifecycleResultListener: self
         )
         
     }
