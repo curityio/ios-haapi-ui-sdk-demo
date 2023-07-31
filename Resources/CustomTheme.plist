@@ -6,15 +6,13 @@
 	<dict>
 		<key>imageName</key>
 		<string>example_logo</string>
-		<key>backgroundColorName</key>
-		<string>Background</string>
 	</dict>
-	<key>fontName</key>
+	<key>fontNameXXX</key>
 	<string>IBMPlexMono</string>
 	<key>HaapiFlowViewController</key>
 	<dict>
 		<key>backgroundColorName</key>
-		<string>Background</string>
+		<string>ViewBackground</string>
 	</dict>
 	<key>ActionableButton.Primary</key>
 	<dict>
@@ -40,6 +38,8 @@
 		<string>Secondary</string>
 		<key>textAppearance</key>
 		<string>TextAppearance.Link</string>
+		<key>backgroundColorName</key>
+		<string>ViewBackground</string>
 	</dict>
 	<key>TextAppearance.Link</key>
 	<dict>
