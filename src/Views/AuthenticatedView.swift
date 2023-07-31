@@ -34,6 +34,7 @@ struct AuthenticatedView: View, HaapiFlowResult {
                     ExpanderView(label: Text("User Info").subHeadingStyle()) {
                         if self.oauthState.userInfo != nil {
                             UserInfoView(model: self.oauthState.userInfo!)
+                                .padding(.bottom, 10)
                         }
                     }
                     .padding(.top, 20)
@@ -44,6 +45,7 @@ struct AuthenticatedView: View, HaapiFlowResult {
                             if self.oauthState.accessToken != nil {
                                 AccessTokenView(model: self.oauthState.accessTokenModel!)
                                     .padding(.top, 10)
+                                    .padding(.bottom, 10)
                             }
                         }
                     }
@@ -71,7 +73,7 @@ struct AuthenticatedView: View, HaapiFlowResult {
                 .buttonStyle(CustomButtonStyle(disabled: !refreshEnabled))
                 .disabled(!refreshEnabled)
                 
-                Button(action: self.oauthState.clear) {
+                Button(action: self.logout) {
                     Text("sign_out")
                 }
                 .padding(.top, 5)
@@ -144,7 +146,10 @@ struct AuthenticatedView: View, HaapiFlowResult {
             haapiUIKitApplication: self.haapiApplication,
             lifecycleResultListener: self
         )
-        
+    }
+    
+    func logout() {
+        self.oauthState.removeAllTokens()
     }
 
     func didReceiveOAuthModel(_ tokens: OAuthModel) {
@@ -154,14 +159,11 @@ struct AuthenticatedView: View, HaapiFlowResult {
             return
         }
         
-        self.oauthState.isLoggingIn = false
         self.oauthState.updateFromTokenRefreshSuccessResponse(tokens: model)
         self.error = nil
     }
 
     func didReceiveError(_ error: Error) {
-        self.oauthState.isLoggingIn = false
-        self.oauthState.clear()
         self.error = ApplicationError(title: "HAAPI Token Refresh Error", description: error.localizedDescription)
     }
 }

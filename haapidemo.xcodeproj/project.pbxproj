@@ -14,7 +14,6 @@
 		282A70F82A5D6A81000AE4FD /* DemoAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A70F72A5D6A81000AE4FD /* DemoAppDelegate.swift */; };
 		282A70FD2A5D7664000AE4FD /* TrustAllCertsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A70FC2A5D7664000AE4FD /* TrustAllCertsDelegate.swift */; };
 		287C37C62A66E08600385838 /* CustomTheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 287C37C52A66E08600385838 /* CustomTheme.plist */; };
-		287EE0C72A6A95D500B628F1 /* IdsvrHaapiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287EE0C62A6A95D500B628F1 /* IdsvrHaapiUIKit.xcframework */; };
 		287EE0C92A6A9A0F00B628F1 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EE0C82A6A9A0F00B628F1 /* AuthenticatedView.swift */; };
 		287EE0CB2A6AAE3500B628F1 /* ExpanderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EE0CA2A6AAE3500B628F1 /* ExpanderView.swift */; };
 		287EE0D12A6AE6F000B628F1 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EE0D02A6AE6F000B628F1 /* UserInfoModel.swift */; };
@@ -45,6 +44,7 @@
 		28D43C4F2A701CD3001666F2 /* IBMPlexMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28D43C3F2A701CD3001666F2 /* IBMPlexMono-Regular.ttf */; };
 		28D43C502A701CD3001666F2 /* IBMPlexMono-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28D43C402A701CD3001666F2 /* IBMPlexMono-MediumItalic.ttf */; };
 		28D43C512A701CD3001666F2 /* IBMPlexMono-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28D43C412A701CD3001666F2 /* IBMPlexMono-ExtraLight.ttf */; };
+		28EB3BD82A77C513009A9527 /* IdsvrHaapiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EB3BD72A77C513009A9527 /* IdsvrHaapiUIKit.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,7 +70,6 @@
 		282A70FC2A5D7664000AE4FD /* TrustAllCertsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustAllCertsDelegate.swift; sourceTree = "<group>"; };
 		287C37C52A66E08600385838 /* CustomTheme.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CustomTheme.plist; sourceTree = "<group>"; };
 		287C37E12A6805E500385838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		287EE0C62A6A95D500B628F1 /* IdsvrHaapiUIKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = IdsvrHaapiUIKit.xcframework; path = "../../ios-cat/build/IdsvrHaapiUIKit.xcframework"; sourceTree = "<group>"; };
 		287EE0C82A6A9A0F00B628F1 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
 		287EE0CA2A6AAE3500B628F1 /* ExpanderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpanderView.swift; sourceTree = "<group>"; };
 		287EE0D02A6AE6F000B628F1 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		28D43C3F2A701CD3001666F2 /* IBMPlexMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Regular.ttf"; sourceTree = "<group>"; };
 		28D43C402A701CD3001666F2 /* IBMPlexMono-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-MediumItalic.ttf"; sourceTree = "<group>"; };
 		28D43C412A701CD3001666F2 /* IBMPlexMono-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-ExtraLight.ttf"; sourceTree = "<group>"; };
+		28EB3BD72A77C513009A9527 /* IdsvrHaapiUIKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = IdsvrHaapiUIKit.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				287EE0C72A6A95D500B628F1 /* IdsvrHaapiUIKit.xcframework in Frameworks */,
+				28EB3BD82A77C513009A9527 /* IdsvrHaapiUIKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +149,7 @@
 		282A70F92A5D6AC0000AE4FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				287EE0C62A6A95D500B628F1 /* IdsvrHaapiUIKit.xcframework */,
+				28EB3BD72A77C513009A9527 /* IdsvrHaapiUIKit.xcframework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";

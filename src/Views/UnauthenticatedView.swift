@@ -71,19 +71,19 @@ struct UnauthenticatedView: View, HaapiFlowResult {
     
     func didReceiveOAuthModel(_ tokens: OAuthModel) {
 
+        self.oauthState.isLoggingIn = false
         guard let model = tokens as? OAuthTokenModel else {
             self.error = ApplicationError(title: "HAAPI Login Error", description: "No tokens returned in login response")
             return
         }
         
-        self.oauthState.isLoggingIn = false
         self.oauthState.updateFromLoginResponse(tokens: model)
         self.error = nil
     }
 
     func didReceiveError(_ error: Error) {
+    
         self.oauthState.isLoggingIn = false
-        self.oauthState.clear()
         self.error = ApplicationError(title: "HAAPI Login Error", description: error.localizedDescription)
     }
 }

@@ -51,7 +51,7 @@ public struct ExpanderView <Content, Label> : View
         }) {
             HStack {
                 
-                label
+                label.padding(10)
                 Spacer()
                 if expanded {
                     

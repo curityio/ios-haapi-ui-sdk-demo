@@ -49,10 +49,11 @@ class OAuthStateModel: ObservableObject {
         self.accessTokenModel = AccessTokenModel(tokens: tokens)
     }
 
-    func clear() {
+    func removeAllTokens() {
         self.accessToken = nil
         self.idToken = nil
         self.refreshToken = nil
+        self.accessTokenModel = nil
         self.userInfo = nil
     }
 }
