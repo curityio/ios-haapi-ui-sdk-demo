@@ -7,13 +7,8 @@
 		<key>imageName</key>
 		<string>example_logo</string>
 	</dict>
-	<key>fontNameXXX</key>
+	<key>fontName</key>
 	<string>IBMPlexMono</string>
-	<key>HaapiFlowViewController</key>
-	<dict>
-		<key>backgroundColorName</key>
-		<string>ViewBackground</string>
-	</dict>
 	<key>ActionableButton.Primary</key>
 	<dict>
 		<key>backgroundColorName</key>

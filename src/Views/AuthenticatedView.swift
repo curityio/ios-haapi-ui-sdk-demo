@@ -21,9 +21,12 @@ struct AuthenticatedView: View, HaapiFlowResult {
         return ScrollView {
             VStack {
                 
+                Image("example_logo")
+                    .padding(.top, 20)
+                
                 if self.error == nil {
                     Text("authenticated_message")
-                        .headingStyle()
+                        .subHeadingStyle(size: 24)
                         .padding(.top, 20)
                 } else {
                     ErrorView(error: self.error!)
@@ -31,15 +34,16 @@ struct AuthenticatedView: View, HaapiFlowResult {
                 }
                 
                 VStack {
-                    ExpanderView(label: Text("User Info").subHeadingStyle()) {
+                      
+                    ExpanderView(label: Text("User Info").labelStyle()) {
                         if self.oauthState.userInfo != nil {
                             UserInfoView(model: self.oauthState.userInfo!)
                                 .padding(.bottom, 10)
                         }
                     }
-                    .padding(.top, 20)
+                    .padding(.top, 5)
                     
-                    ExpanderView(label: Text("Access token").subHeadingStyle(), expanded: true) {
+                    ExpanderView(label: Text("Access token").labelStyle(), expanded: true) {
                         VStack {
                             Text(self.oauthState.accessToken ?? "").valueStyle()
                             if self.oauthState.accessToken != nil {
@@ -49,21 +53,21 @@ struct AuthenticatedView: View, HaapiFlowResult {
                             }
                         }
                     }
-                    .padding(.top, 20)
+                    .padding(.top, 5)
                     
-                    ExpanderView(label: Text("ID token").subHeadingStyle()) {
+                    ExpanderView(label: Text("ID token").labelStyle()) {
                         Text(self.oauthState.idToken ?? "").valueStyle()
                     }
-                    .padding(.top, 20)
+                    .padding(.top, 5)
                     
-                    ExpanderView(label: Text("Refresh token").subHeadingStyle()) {
+                    ExpanderView(label: Text("Refresh token").labelStyle()) {
                         Text(self.oauthState.refreshToken ?? "").valueStyle()
                     }
-                    .padding(.top, 20)
+                    .padding(.top, 5)
                 }
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
-                
+            
                 Button(action: self.refreshAccessToken) {
                     Text("refresh_access_token")
                 }

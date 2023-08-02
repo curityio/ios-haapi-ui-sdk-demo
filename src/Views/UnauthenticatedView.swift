@@ -33,6 +33,11 @@ struct UnauthenticatedView: View, HaapiFlowResult {
         
         VStack {
             
+            Text("unauthenticated_title")
+                    .titleStyle()
+                    .padding(.top, 20)
+                    .padding(.leading, 20)
+            
             if self.error == nil {
                 Text("welcome_message")
                     .labelStyle()
@@ -46,14 +51,14 @@ struct UnauthenticatedView: View, HaapiFlowResult {
             
             Image("StartIllustration")
                 .aspectRatio(contentMode: .fit)
-                .padding(.top, 20)
+                .padding(.top, 60)
             
             Button {
                 self.oauthState.isLoggingIn = true
             } label: {
                 Text("start_authentication")
             }
-                .padding(.top, 20)
+                .padding(.top, 80)
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
                 .buttonStyle(CustomButtonStyle())

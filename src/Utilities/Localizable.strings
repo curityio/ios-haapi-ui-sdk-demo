@@ -1,4 +1,5 @@
-"main_title" = "Curity Demo App";
+"banner_title" = "HAAPI UI SDK demo";
+"unauthenticated_title" = "Curity Demo App";
 "welcome_message" = "Welcome to the Curity iOS Hypermedia Authentication API (HAAPI) demo app.";
 "start_authentication" = "Start authentication";
 "authenticated_message" = "You're now authenticated";

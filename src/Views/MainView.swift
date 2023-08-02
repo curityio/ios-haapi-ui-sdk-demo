@@ -30,20 +30,26 @@ struct MainView: View {
 
     var body: some View {
 
-        return VStack {
+        return VStack(spacing: 0) {
             
-            Text("main_title")
-                    .titleStyle()
-                    .padding(.top, 20)
-                    .padding(.leading, 20)
-
-            if self.oauthState.accessToken == nil {
-                UnauthenticatedView(haapiApplication: self.haapiApplication, oauthState: self.oauthState)
-                
-            } else {
-                AuthenticatedView(haapiApplication: self.haapiApplication, oauthState: self.oauthState)
+            Text("banner_title")
+                //.headingStyle(size: 24)
+                .font(.system(size: 24))
+                .frame(width: UIScreen.main.bounds.size.width * 1.0, height: 50, alignment: .leading)
+                .padding(.leading, 20)
+                .background(Color.black)
+                .foregroundColor(Color.white)
+            
+            VStack {
+                if self.oauthState.accessToken == nil {
+                    UnauthenticatedView(haapiApplication: self.haapiApplication, oauthState: self.oauthState)
+                    
+                } else {
+                    AuthenticatedView(haapiApplication: self.haapiApplication, oauthState: self.oauthState)
+                }
             }
+            .background(Color("ViewBackground"))
         }
-        .background(Color("ViewBackground"))
+       
     }
 }
