@@ -16,42 +16,43 @@
 
 import SwiftUI
 
+
 extension Text {
     
     func titleStyle() -> Text {
 
         return foregroundColor(Color("GeneralText"))
-                .font(.custom(Fonts.regular, size: 40))
+            .font(.system(size: 40))
     }
 
     func headingStyle(size: CGFloat = 20) -> Text {
 
         return foregroundColor(Color("GeneralText"))
-                .font(.custom(Fonts.bold, size: size))
+                .font(.system(size: size))
     }
     
     func subHeadingStyle(size: CGFloat = 20) -> Text {
 
         return foregroundColor(Color("GeneralText"))
-                .font(.custom(Fonts.medium, size: size))
+                .font(.system(size: size))
     }
     
     func labelStyle(size: CGFloat = 16) -> Text {
 
        return foregroundColor(Color("GeneralText"))
-                .font(.custom(Fonts.medium, size: size))
+                .font(.system(size: size))
     }
 
     func valueStyle(size: CGFloat = 16) -> Text {
 
         return foregroundColor(Color.blue)
-                .font(.custom(Fonts.medium, size: size))
+                .font(.system(size: size))
     }
 
     func errorValueStyle(size: CGFloat = 16) -> Text {
 
         return foregroundColor(Color.red)
-                .font(.custom(Fonts.medium, size: size))
+                .font(.system(size: size))
     }
 }
 

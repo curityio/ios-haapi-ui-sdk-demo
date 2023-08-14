@@ -15,7 +15,5 @@
 //
 
 enum Fonts {
-    static let regular = "IBMPlexMono-Regular"
-    static let medium = "IBMPlexMono-Medium"
-    static let bold = "IBMPlexMono-Bold"
+    static let plexMono = "IBMPlexMono"
 }

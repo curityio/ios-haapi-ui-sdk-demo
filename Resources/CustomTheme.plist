@@ -7,8 +7,6 @@
 		<key>imageName</key>
 		<string>example_logo</string>
 	</dict>
-	<key>fontName</key>
-	<string>IBMPlexMono</string>
 	<key>ActionableButton.Primary</key>
 	<dict>
 		<key>backgroundColorName</key>

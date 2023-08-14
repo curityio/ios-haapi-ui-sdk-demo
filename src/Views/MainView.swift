@@ -33,7 +33,6 @@ struct MainView: View {
         return VStack(spacing: 0) {
             
             Text("banner_title")
-                //.headingStyle(size: 24)
                 .font(.system(size: 24))
                 .frame(width: UIScreen.main.bounds.size.width * 1.0, height: 50, alignment: .leading)
                 .padding(.leading, 20)

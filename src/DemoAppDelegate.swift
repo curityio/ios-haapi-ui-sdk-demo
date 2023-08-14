@@ -25,7 +25,8 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         HaapiLogger.followUpTags = DriverFollowUpTag.allCases + SdkFollowUpTag.allCases + UIKitFollowUpTag.allCases
-        HaapiLogger.enabled = false
+        HaapiLogger.isInfoEnabled = true
+        HaapiLogger.isDebugEnabled = true
         
         let haapiUIKitConfiguration = HaapiUIKitConfigurationBuilder(clientId: Configuration.clientId,
                                                                      baseUrl: Configuration.baseURL,
