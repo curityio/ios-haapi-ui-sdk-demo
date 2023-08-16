@@ -2,17 +2,6 @@
 
 This is an example iOS app that uses the Curity Identity Server's Hypermedia API to perform an OIDC flow. The authentication is done within the app, usually without the need for an external browser (depends on the authentication methods used).
 
-## Pre-Release Build Instructions
-
-Until the SDK is released, Curity employees can build this app via the following steps:
-
-- Build the pre-release frameworks according to [these instructions](https://stackoverflowteams.com/c/curity/questions/194)
-- Use this branch: feature/HSI-200-create-helper-for-oauthlifecycle-refreshtoken 
-- Drag the `build/IdsvrHaapiUIKit.xcframework` into the `Frameworks` folder
-
-To avoid `DYLD1 library missing` errors using the launch icon on a simulator I use the `Embed and Sign` option.\
-I'm also using automatic signing with my personal Apple account.
-
 ## Code Organization
 
 This is a trivial app that only authenticates the user, then displays the tokens obtained from the authorization server. Some source files worth checking out:
