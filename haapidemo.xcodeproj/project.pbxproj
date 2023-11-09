@@ -12,7 +12,6 @@
 		282A70EE2A5D694E000AE4FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282A70ED2A5D694E000AE4FD /* Assets.xcassets */; };
 		282A70F82A5D6A81000AE4FD /* DemoAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A70F72A5D6A81000AE4FD /* DemoAppDelegate.swift */; };
 		282A70FD2A5D7664000AE4FD /* TrustAllCertsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A70FC2A5D7664000AE4FD /* TrustAllCertsDelegate.swift */; };
-		2853CC592A8CAFE400FBF309 /* IdsvrHaapiUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2853CC582A8CAFE400FBF309 /* IdsvrHaapiUIKit */; };
 		287C37C62A66E08600385838 /* CustomTheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 287C37C52A66E08600385838 /* CustomTheme.plist */; };
 		287EE0C92A6A9A0F00B628F1 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EE0C82A6A9A0F00B628F1 /* AuthenticatedView.swift */; };
 		287EE0CB2A6AAE3500B628F1 /* ExpanderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EE0CA2A6AAE3500B628F1 /* ExpanderView.swift */; };
@@ -20,6 +19,7 @@
 		287EE0D32A6AE6FF00B628F1 /* AccessTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EE0D22A6AE6FF00B628F1 /* AccessTokenModel.swift */; };
 		287EE0D52A6AE8FE00B628F1 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EE0D42A6AE8FE00B628F1 /* UserInfoView.swift */; };
 		287EE0D82A6AED8B00B628F1 /* AccessTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EE0D72A6AED8B00B628F1 /* AccessTokenView.swift */; };
+		289B58552AFD05A700366FBA /* IdsvrHaapiUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 289B58542AFD05A700366FBA /* IdsvrHaapiUIKit */; };
 		28C9FD6B2A65278800902F08 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD6A2A65278800902F08 /* MainView.swift */; };
 		28C9FD6F2A65315400902F08 /* OAuthStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD6E2A65315400902F08 /* OAuthStateModel.swift */; };
 		28C9FD712A6537D900902F08 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD702A6537D900902F08 /* TextStyles.swift */; };
@@ -57,6 +57,7 @@
 		287EE0D22A6AE6FF00B628F1 /* AccessTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenModel.swift; sourceTree = "<group>"; };
 		287EE0D42A6AE8FE00B628F1 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		287EE0D72A6AED8B00B628F1 /* AccessTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenView.swift; sourceTree = "<group>"; };
+		289B58522AFD021400366FBA /* haapidemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = haapidemo.entitlements; sourceTree = "<group>"; };
 		28C9FD6A2A65278800902F08 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		28C9FD6E2A65315400902F08 /* OAuthStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthStateModel.swift; sourceTree = "<group>"; };
 		28C9FD702A6537D900902F08 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
@@ -72,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2853CC592A8CAFE400FBF309 /* IdsvrHaapiUIKit in Frameworks */,
+				289B58552AFD05A700366FBA /* IdsvrHaapiUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +83,7 @@
 		282A70DD2A5D694C000AE4FD = {
 			isa = PBXGroup;
 			children = (
+				289B58522AFD021400366FBA /* haapidemo.entitlements */,
 				282A70E82A5D694C000AE4FD /* src */,
 				287C37CD2A68007900385838 /* Resources */,
 				282A70E72A5D694C000AE4FD /* Products */,
@@ -172,7 +174,7 @@
 			);
 			name = haapidemo;
 			packageProductDependencies = (
-				2853CC582A8CAFE400FBF309 /* IdsvrHaapiUIKit */,
+				289B58542AFD05A700366FBA /* IdsvrHaapiUIKit */,
 			);
 			productName = haapidemo;
 			productReference = 282A70E62A5D694C000AE4FD /* haapidemo.app */;
@@ -203,7 +205,7 @@
 			);
 			mainGroup = 282A70DD2A5D694C000AE4FD;
 			packageReferences = (
-				2853CC572A8CAFE400FBF309 /* XCRemoteSwiftPackageReference "ios-idsvr-haapi-ui-kit-dist" */,
+				289B58532AFD05A700366FBA /* XCRemoteSwiftPackageReference "ios-idsvr-haapi-ui-kit-dist" */,
 			);
 			productRefGroup = 282A70E72A5D694C000AE4FD /* Products */;
 			projectDirPath = "";
@@ -374,6 +376,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = haapidemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -392,7 +395,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.curity.cat.ios.client;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.democlient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -405,6 +408,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = haapidemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -423,7 +427,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.curity.cat.ios.client;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.democlient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -455,20 +459,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2853CC572A8CAFE400FBF309 /* XCRemoteSwiftPackageReference "ios-idsvr-haapi-ui-kit-dist" */ = {
+		289B58532AFD05A700366FBA /* XCRemoteSwiftPackageReference "ios-idsvr-haapi-ui-kit-dist" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/curityio/ios-idsvr-haapi-ui-kit-dist";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 3.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2853CC582A8CAFE400FBF309 /* IdsvrHaapiUIKit */ = {
+		289B58542AFD05A700366FBA /* IdsvrHaapiUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2853CC572A8CAFE400FBF309 /* XCRemoteSwiftPackageReference "ios-idsvr-haapi-ui-kit-dist" */;
+			package = 289B58532AFD05A700366FBA /* XCRemoteSwiftPackageReference "ios-idsvr-haapi-ui-kit-dist" */;
 			productName = IdsvrHaapiUIKit;
 		};
 /* End XCSwiftPackageProductDependency section */

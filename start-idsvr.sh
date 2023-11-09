@@ -15,7 +15,7 @@
 # By default the Curity Identity Server will use the local computer's host IP.
 # Set USE_NGROK to true and a dynamic NGROK base URL will be used automatically.
 #
-USE_NGROK=false
+USE_NGROK='true'
 EXAMPLE_NAME='haapi'
 BASE_URL=https://localhost:8443
 
@@ -32,12 +32,12 @@ fi
 #
 # Download mobile deployment resources
 #
-rm -rf deployment
-git clone https://github.com/curityio/mobile-deployments deployment
-if [ $? -ne 0 ]; then
-  echo 'Problem encountered downloading deployment resources'
-  exit
-fi
+#rm -rf deployment
+#git clone https://github.com/curityio/mobile-deployments deployment
+#if [ $? -ne 0 ]; then
+#  echo 'Problem encountered downloading deployment resources'
+#  exit
+#fi
 
 #
 # Run the deployment script to get an NGROK URL and deploy the Curity Identity Server

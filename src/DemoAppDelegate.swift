@@ -26,7 +26,7 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
         
         HaapiLogger.followUpTags = DriverFollowUpTag.allCases + SdkFollowUpTag.allCases + UIKitFollowUpTag.allCases
         HaapiLogger.isInfoEnabled = true
-        HaapiLogger.isDebugEnabled = true
+        HaapiLogger.isDebugEnabled = false
         
         let haapiUIKitConfiguration = HaapiUIKitConfigurationBuilder(clientId: Configuration.clientId,
                                                                      baseUrl: Configuration.baseURL,
