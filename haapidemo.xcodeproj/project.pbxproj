@@ -50,6 +50,7 @@
 		282A70ED2A5D694E000AE4FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		282A70F72A5D6A81000AE4FD /* DemoAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppDelegate.swift; sourceTree = "<group>"; };
 		282A70FC2A5D7664000AE4FD /* TrustAllCertsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustAllCertsDelegate.swift; sourceTree = "<group>"; };
+		285DEE912B0372E000528EFE /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		287C37C52A66E08600385838 /* CustomTheme.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CustomTheme.plist; sourceTree = "<group>"; };
 		287EE0C82A6A9A0F00B628F1 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
 		287EE0CA2A6AAE3500B628F1 /* ExpanderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpanderView.swift; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		282A70DD2A5D694C000AE4FD = {
 			isa = PBXGroup;
 			children = (
+				285DEE912B0372E000528EFE /* info.plist */,
 				289B58522AFD021400366FBA /* haapidemo.entitlements */,
 				282A70E82A5D694C000AE4FD /* src */,
 				287C37CD2A68007900385838 /* Resources */,
@@ -383,7 +385,8 @@
 				DEVELOPMENT_TEAM = U3VTCHYEM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -415,7 +418,8 @@
 				DEVELOPMENT_TEAM = U3VTCHYEM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
