@@ -92,7 +92,10 @@ function replaceTextInFile() {
 }
 
 if [ "$USE_NGROK" == 'true' ]; then
-  DEFAULT_URL=${BASE_URL//\//\\/}
-  RUNTIME_BASE_URL=${RUNTIME_BASE_URL//\//\\/}
-  replaceTextInFile $DEFAULT_URL $RUNTIME_BASE_URL './src/Configuration.swift'
+  
+  # Override the configuration URL
+  replaceTextInFile "${BASE_URL//\//\\/}" "${RUNTIME_BASE_URL//\//\\/}" './src/Configuration.swift'
+  
+  # Override the associated domains entitlements domain name
+  replaceTextInFile "${BASE_URL#https://}" "${RUNTIME_BASE_URL#https://}" './haapidemo.entitlements'
 fi
