@@ -76,7 +76,7 @@ RUNTIME_BASE_URL=$(cat './deployment/output.txt')
 echo "Curity Identity Server is running at $RUNTIME_BASE_URL"
 
 #
-# Now configure the app
+# If using ngrok, configure more advanced settings
 #
 if [ "$USE_NGROK" == 'true' ]; then
   ./configure-app.sh
