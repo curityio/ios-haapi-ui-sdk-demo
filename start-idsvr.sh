@@ -47,7 +47,7 @@ rm -rf deployment
 git clone https://github.com/curityio/mobile-deployments deployment
 if [ $? -ne 0 ]; then
   echo 'Problem encountered downloading deployment resources'
-  exit
+  exit 1
 fi
 
 #
@@ -66,7 +66,7 @@ cp ./license.json deployment/resources/license.json
 ./deployment/start.sh "$USE_NGROK" "$BASE_URL" "$EXAMPLE_NAME"
 if [ $? -ne 0 ]; then
   echo 'Problem encountered deploying the Curity Identity Server'
-  exit
+  exit 1
 fi
 
 #
@@ -76,26 +76,11 @@ RUNTIME_BASE_URL=$(cat './deployment/output.txt')
 echo "Curity Identity Server is running at $RUNTIME_BASE_URL"
 
 #
-# Update URLs referenced in the code example to match NGROK
+# Now configure the app
 #
-function replaceTextInFile() {
-
-  FROM="$1"
-  TO="$2"
-  FILE="$3"
-  
-  if [ "$(uname -s)" == 'Darwin' ]; then
-    sed -i '' "s/$FROM/$TO/g" "$FILE"
-  else
-    sed -i -e "s/$FROM/$TO/g" "$FILE"
-  fi
-}
-
 if [ "$USE_NGROK" == 'true' ]; then
-  
-  # Override the configuration URL
-  replaceTextInFile "${BASE_URL//\//\\/}" "${RUNTIME_BASE_URL//\//\\/}" './src/Configuration.swift'
-  
-  # Override the associated domains entitlements domain name
-  replaceTextInFile "${BASE_URL#https://}" "${RUNTIME_BASE_URL#https://}" './haapidemo.entitlements'
+  ./configure-app.sh
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
 fi
