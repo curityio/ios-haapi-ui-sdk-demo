@@ -32,12 +32,12 @@ fi
 #
 # Download mobile deployment resources
 #
-#rm -rf deployment
-#git clone https://github.com/curityio/mobile-deployments deployment
-#if [ $? -ne 0 ]; then
-#  echo 'Problem encountered downloading deployment resources'
-#  exit
-#fi
+rm -rf deployment
+git clone https://github.com/curityio/mobile-deployments deployment
+if [ $? -ne 0 ]; then
+  echo 'Problem encountered downloading deployment resources'
+  exit
+fi
 
 #
 # Run the deployment script to get an NGROK URL and deploy the Curity Identity Server
