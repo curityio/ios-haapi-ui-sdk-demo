@@ -25,7 +25,7 @@ function replaceTextInFile() {
 }
 
 RUNTIME_BASE_URL=$(curl -s http://localhost:4040/api/tunnels | jq -r '.tunnels[] | select(.proto == "https") | .public_url')
-if [ $RUNTIME_BASE_URL != '' ] then;
+if [ $RUNTIME_BASE_URL != '' ]; then
 
   # Override the configuration URL to enable internet connectivity from any device
   replaceTextInFile "${BASE_URL//\//\\/}" "${RUNTIME_BASE_URL//\//\\/}" './src/Configuration.swift'
