@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>webcredentials:localhost:8443</string>
+		<string>webcredentials:localhost:8443?mode=developer</string>
 	</array>
 </dict>
 </plist>
