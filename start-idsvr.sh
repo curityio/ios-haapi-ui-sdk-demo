@@ -23,16 +23,6 @@ BASE_URL='https://localhost:8443'
 EXAMPLE_NAME='haapi'
 
 #
-# If using passkey logins, override the team ID to match your setup
-#
-if [ "$APPLE_TEAM_ID" == '' ]; then
-  export APPLE_TEAM_ID='MYTEAMID'
-fi
-if [ "$APPLE_APP_ID" == '' ]; then
-  export APPLE_APP_ID='io.curity.haapidemo'
-fi
-
-#
 # First check prerequisites
 #
 if [ ! -f './license.json' ]; then
@@ -56,8 +46,6 @@ fi
 cd deployment
 git checkout feature/passkeys
 cd ..
-
-export APPLE_TEAM_ID='U3VTCHYEM7'
 
 #
 # Run the deployment script to get an NGROK URL and deploy the Curity Identity Server
