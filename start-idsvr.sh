@@ -18,7 +18,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 # By default the Curity Identity Server will use the local computer's host IP.
 # Set USE_NGROK to true and a dynamic NGROK base URL will be used automatically.
 #
-USE_NGROK='false'
+USE_NGROK='true'
 BASE_URL='https://localhost:8443'
 EXAMPLE_NAME='haapi'
 
@@ -39,13 +39,6 @@ if [ $? -ne 0 ]; then
   echo 'Problem encountered downloading deployment resources'
   exit 1
 fi
-
-#
-# TODO: delete after merge
-#
-cd deployment
-git checkout feature/passkeys
-cd ..
 
 #
 # Run the deployment script to get an NGROK URL and deploy the Curity Identity Server
