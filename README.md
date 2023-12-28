@@ -26,11 +26,9 @@ The required Curity Identity Server setup is provided through a script. To run t
 4. There is a preconfigured user account you can sign-in with: demouser / Password1. Feel free to create additional accounts.
 5. Run the `./stop-idsvr.sh` script to free Docker resources.
 
-By default the Curity Identity Server instance runs on a localhost URL. 
-If you prefer to expose the Server on the Internet (e.g. to test with a real device), you can use the 
-ngrok tool for that. Edit the `USE_NGROK` variable in `start-server.sh` and `stop-server.sh` scripts.
-This [Mobile Setup](https://curity.io/resources/learn/mobile-setup-ngrok/) tutorial further describes
-this option.
+### Passkey Logins
+
+To login with native passkeys you must configure associated domains for the app, according to the [Configure Native Passkeys for Mobile Logins](https://curity.io/resources/learn/mobile-logins-using-native-passkeys/) tutorial. The Docker automated setup provides working passkey logins if you install the ngrok tool as described in the [Mobile Setup](https://curity.io/resources/learn/mobile-setup-ngrok/) tutorial, then set the `USE_NGROK=true` variable at the top of the `start-server.sh` script, before running it. Using ngrok exposes the docker instance of the Curity Identity Server on the internet at a trusted SSL URL, so that associated domain registration works. Using ngrok also enables testing with real devices.
 
 ## Running the App
 
