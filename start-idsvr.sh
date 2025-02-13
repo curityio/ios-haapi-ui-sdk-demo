@@ -41,13 +41,6 @@ if [ $? -ne 0 ]; then
 fi
 
 #
-# TODO: Delete after merging the mobile-deployments branch
-#
-cd deployment
-git checkout feature/sdk_update
-cd ..
-
-#
 # Run the deployment script to get an NGROK URL and deploy the Curity Identity Server
 #
 cp ./license.json deployment/resources/license.json
