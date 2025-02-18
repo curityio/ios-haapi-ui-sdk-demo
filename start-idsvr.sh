@@ -40,6 +40,10 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+cd deployment
+git checkout feature/sdk_update
+cd ..
+
 #
 # Run the deployment script to get an NGROK URL and deploy the Curity Identity Server
 #
