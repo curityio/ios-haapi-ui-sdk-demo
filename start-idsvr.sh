@@ -69,7 +69,7 @@ if [ "$APPLE_TEAM_ID" == '' ]; then
   export APPLE_TEAM_ID='MYTEAMID'
 fi
 if [ "$APPLE_BUNDLE_ID" == '' ]; then
-  export APPLE_BUNDLE_ID='io.curity.haapi.react.example'
+  export APPLE_BUNDLE_ID='io.curity.haapidemo'
 fi
 
 #
