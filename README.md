@@ -3,7 +3,7 @@
 [![Quality](https://img.shields.io/badge/quality-test-yellow)](https://curity.io/resources/code-examples/status/)
 [![Availability](https://img.shields.io/badge/availability-source-blue)](https://curity.io/resources/code-examples/status/)
 
-This is an example iOS app that uses the Curity Identity Server's Hypermedia API to perform an OIDC flow.\
+An example iOS app that uses the Curity Identity Server's Hypermedia API to perform an OIDC flow.\
 Authentication uses native screens without the need for an external browser.
 
 ## Getting Started
@@ -20,7 +20,7 @@ Ensure that the local computer has these prerequisites:
 - The `jq` tool, e.g with `brew install jq`.
 
 First copy a `license.json` file for the Curity Identity Server into the root folder.\
-Then run a Docker deployment and indicate how connected simulators or devices call the Curity Identity Server in Docker.
+Then run a Docker deployment and indicate how connected simulators or devices call the Curity Identity Server.
 
 For example, run the following commands to connect to a macOS computer using its IP address.\
 Or you can set the `IDSVR_HOST_NAME` to `localhost` if you only want to test on simulators.
