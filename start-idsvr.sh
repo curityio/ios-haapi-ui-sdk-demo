@@ -46,6 +46,11 @@ git checkout feature/sdk_update
 cd ..
 
 #
+# Override the HAAPI default configuration settings
+#
+cp config/docker-template.xml deployment/haapi/example-config-template.xml
+
+#
 # To test passkeys on iOS, override these settings with a team ID that you own and your own unique bundle ID
 #
 if [ "$APPLE_TEAM_ID" == '' ]; then
