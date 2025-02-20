@@ -82,7 +82,7 @@ See the following source files to understand how that works:
 - The [UnauthenticatedView](src/Views/UnauthenticatedView.swift) shows the code needed to manage logins using the HAAPI UI SDK.
 - The [AuthenticatedView](src/Views/AuthenticatedView.swift) shows how to use tokens once the authentication workflow completes.
 
-## Customizing the Look and Feel
+### Customizing the Look and Feel
 
 The [HAAPI iOS customization tutorial](https://curity.io/resources/learn/haapi-mobile-ios-customization) explains how to change the default theme.\
 See also the [Developer Documentation](https://curity.io/docs/haapi-ios-ui-kit/latest/) for the finer details of customization options.
