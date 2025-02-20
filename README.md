@@ -96,6 +96,6 @@ See the following tutorials for additional developer information:
 -  The [Configure Native Passkeys for Mobile Logins](https://curity.io/resources/learn/mobile-logins-using-native-passkeys/) tutorial explains the technical setup when using passkeys.
 - The [HAAPI Mobile Guides](https://curity.io/resources/haapi-ui-sdk/) provide further details for HAAPI mobile developers.
 
-## More information
+## Further information
 
 Please visit [curity.io](https://curity.io/) for more information about the Curity Identity Server.
