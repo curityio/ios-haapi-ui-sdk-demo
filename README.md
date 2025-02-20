@@ -8,8 +8,8 @@ Authentication uses native screens without the need for an external browser.
 
 ## Getting Started
 
-Start with a local automated deployment to ensure that you understand of the technical setup.\
-Once uyou nderstood the settings you can also apply them to deployed environments.
+Start with a local automated deployment to ensure that you understand the technical setup.\
+You can then apply the same configuration to deployed environments.
 
 ### 1. Deploy the the Curity Identity Server
 
@@ -38,8 +38,6 @@ export IDSVR_HOST_NAME="$(ipconfig getifaddr en0)"
 ./start-idsvr.sh
 ```
 
-Note that some older Android emulators might require `IDSVR_HOST_NAME` to use the special value `10.0.2.2`.
-
 ### 2. View Security Configuration
 
 The [Mobile Deployments](https://github.com/curityio/mobile-deployments) repository explains further information about the deployed backend infrastructure.\
@@ -55,9 +53,9 @@ Sign in to the deployed environment and use a pre-shipped test user account.
 
 ### 4. Test Native Passkey Logins
 
-Passkeys require hosting of assets documents at trusted internet HTTPS URL.\
+Passkeys require hosting of assets documents at a trusted internet HTTPS URL.\
 You must also provide overrides with your own Apple team ID and unique bundle identifier.\
-You can use ngrok to host assets documents and test passkeys logins for both Android and iOS.\
+You can use ngrok to host assets documents to enable the testing of passkeys logins.\
 The following example commands deploy the Curity Identity Server with a passkeys configuration:
 
 ```bash
@@ -86,7 +84,7 @@ See the following source files to understand how that works:
 
 ## Customizing the Look and Feel
 
-The [HAAPI iOS customization tutorial](https://curity.io/resources/learn/haapi-mobile-ios-customization) explains how to change the default theme.
+The [HAAPI iOS customization tutorial](https://curity.io/resources/learn/haapi-mobile-ios-customization) explains how to change the default theme.\
 See also the [Developer Documentation](https://curity.io/docs/haapi-ios-ui-kit/latest/) for the finer details of customization options.
 
 ## Resources
