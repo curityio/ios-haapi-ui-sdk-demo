@@ -1,6 +1,6 @@
 # Demo iOS Application with HAAPI UI SDK Integration
 
-[![Quality](https://img.shields.io/badge/quality-demo-red)](https://curity.io/resources/code-examples/status/)
+[![Quality](https://img.shields.io/badge/quality-test-yellow)](https://curity.io/resources/code-examples/status/)
 [![Availability](https://img.shields.io/badge/availability-source-blue)](https://curity.io/resources/code-examples/status/)
 
 This is an example iOS app that uses the Curity Identity Server's Hypermedia API to perform an OIDC flow.\
