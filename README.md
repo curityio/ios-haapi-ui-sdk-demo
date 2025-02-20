@@ -20,7 +20,7 @@ Ensure that the local computer has these prerequisites:
 - The `jq` tool, e.g with `brew install jq`.
 
 First copy a `license.json` file for the Curity Identity Server into the root folder.\
-Then run a Docker deployment and indicate how connected emulators or devices call the Curity Identity Server.\
+Then run a Docker deployment and indicate how connected simulators or devices call the Curity Identity Server.\
 The following example uses the ngrok tool to provide an internet HTTPS URL:
 
 ```bash
@@ -28,9 +28,9 @@ export USE_NGROK='true'
 ./start-idsvr.sh
 ```
 
-Alternatively, provide a host name with which connected emulators or devices call the Curity Identity Server.\
-The local computer's IP address should work for both Android and iOS on connected emulators and devices.\
-The following commands should work on macOS:
+Alternatively, provide a host name with which connected simulators or devices call the Curity Identity Server.\
+The local computer's IP address should work or you can use `localhost` if you prefer.\
+For example, run the following commands on a macOS computer:
 
 ```bash
 export USE_NGROK='false'
