@@ -1,4 +1,4 @@
-# Demo iOS Application with HAAPI UI SDK Integration
+# iOS Application using the HAAPI UI SDK
 
 [![Quality](https://img.shields.io/badge/quality-test-yellow)](https://curity.io/resources/code-examples/status/)
 [![Availability](https://img.shields.io/badge/availability-source-blue)](https://curity.io/resources/code-examples/status/)
