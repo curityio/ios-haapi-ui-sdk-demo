@@ -29,19 +29,18 @@ export USE_NGROK='true'
 ```
 
 Alternatively, provide a host name with which connected simulators or devices call the Curity Identity Server.\
-The local computer's IP address should work or you can use `localhost` if you prefer.\
 For example, run the following commands on a macOS computer:
 
 ```bash
 export USE_NGROK='false'
-export IDSVR_HOST_NAME="$(ipconfig getifaddr en0)"
+export IDSVR_HOST_NAME='localhost'
 ./start-idsvr.sh
 ```
 
 ### 2. View Security Configuration
 
 The [Mobile Deployments](https://github.com/curityio/mobile-deployments) repository explains further information about the deployed backend infrastructure.\
-You can view the [HAAPI Configuration](https://github.com/curityio/mobile-deployments/blob/main/haapi/example-config-template.xml) to understand the settings to apply to deployed environments.
+You can view the [HAAPI Configuration](config/docker-template.xml) to understand the settings to apply to deployed environments.
 
 ### 3. Test Basic Logins
 
@@ -80,7 +79,7 @@ See the following source files to understand how that works:
 - The [Configuration](src/Configuration.swift) object contains all of the OpenID Connect settings.
 - The [DemoAppDelegate](src/DemoAppDelegate.swift) shows how to create a global object to complete the configuration.
 - The [UnauthenticatedView](src/Views/UnauthenticatedView.swift) shows the code needed to manage logins using the HAAPI UI SDK.
-- The [AuthenticatedView](src/Views/AuthenticatedView.swift) shows how to use tokens once the authentication workflow completes.
+- The [AuthenticatedView](src/Views/AuthenticatedView.swift) shows how to use tokens to call APIs once authentication completes.
 
 ### Customizing the Look and Feel
 
@@ -93,7 +92,7 @@ See the following tutorials for additional developer information:
 
 - The [Swift iOS App using HAAPI](https://curity.io/resources/learn/swift-ios-haapi/) tutorial provides an overview of the code example's behaviors.
 - The [ngrok tutorials](https://curity.io/resources/learn/mobile-setup-ngrok/) explain how to use an internet URL and [view HAAPI messages](https://curity.io/resources/learn/expose-local-curity-ngrok/#ngrok-inspection-and-status).
--  The [Configure Native Passkeys for Mobile Logins](https://curity.io/resources/learn/mobile-logins-using-native-passkeys/) tutorial explains the technical setup when using passkeys.
+- The [Configure Native Passkeys for Mobile Logins](https://curity.io/resources/learn/mobile-logins-using-native-passkeys/) tutorial explains the technical setup when using passkeys.
 - The [HAAPI Mobile Guides](https://curity.io/resources/haapi-ui-sdk/) provide further details for HAAPI mobile developers.
 
 ## Further information
