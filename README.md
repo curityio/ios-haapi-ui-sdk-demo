@@ -53,7 +53,7 @@ The following example commands deploy the Curity Identity Server with a passkeys
 
 ```bash
 export APPLE_TEAM_ID='MYTEAMID'
-export APPLE_BUNDLE_ID='io.myorganization.haapi.demo'
+export APPLE_BUNDLE_ID='io.myorganization.haapidemo'
 export USE_NGROK='true'
 ./start-idsvr.sh
 ```
