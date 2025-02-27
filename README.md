@@ -61,6 +61,14 @@ export USE_NGROK='true'
 In Xcode, configure the team ID and bundle ID under `Signing & Capabilities`.\
 Also ensure that Apple development tools sign the app, such as with the `Automatically manage signing` option.
 
+### 5. Free Deployment Resources
+
+Once you have finished local testing, free all backend resources with the following command:
+
+```bash
+./stop-idsvr.sh
+```
+
 ## Application Code
 
 The following links point you to the most essential areas of the example app's source code.
