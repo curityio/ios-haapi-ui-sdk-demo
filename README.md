@@ -1,70 +1,104 @@
-# Demo iOS Application with HAAPI UI SDK Integration
+# iOS Application using the HAAPI UI SDK
 
-[![Quality](https://img.shields.io/badge/quality-demo-red)](https://curity.io/resources/code-examples/status/)
+[![Quality](https://img.shields.io/badge/quality-test-yellow)](https://curity.io/resources/code-examples/status/)
 [![Availability](https://img.shields.io/badge/availability-source-blue)](https://curity.io/resources/code-examples/status/)
 
-This is an example iOS app that uses the Curity Identity Server's Hypermedia API to perform an OIDC flow. The authentication is done within the app, usually without the need for an external browser (depends on the authentication methods used).
+An example iOS app that uses the Curity Identity Server's Hypermedia API to perform an OIDC flow.\
+Authentication uses native screens without the need for an external browser.
 
-## Code Organization
+## Getting Started
 
-This is a trivial app that only authenticates the user, then displays the tokens obtained from the authorization server. Some source files worth checking out:
+Start with a local automated deployment to ensure that you understand the technical setup.\
+You can then apply the same configuration to deployed environments.
 
-- The `Configuration` object contains all of the OpenID Connect settings. You should tailor these to reflect your installation of the Curity Identity Server.
-- The `DemoAppDelegate` shows how to configure the HAAPI UI SDK so that it can be used with the app.
-- The `UnauthenticatedView` shows the code needed to integrate with the HAAPI UI SDK. The `HaapiFlow.start` operations is invoked and a callback receives tokens once the authentication workflow completes.
-- The `AuthenticatedView` class shows how to handle other lifecycle events once the user is authenticated. This displays the received tokens and obtains information about the user from the user info endpoint. It also shows how to manage token refresh and logout.
+### 1. Deploy the the Curity Identity Server
 
-## Getting started
+Ensure that the local computer has these prerequisites:
 
-### Docker Automated Setup
+- A Docker engine.
+- The `envsubst` tool, e.g with `brew install gettext`.
+- The `jq` tool, e.g with `brew install jq`.
 
-The required Curity Identity Server setup is provided through a script. To run the setup, follow these steps.\
-First run `docker pull curity.azurecr.io/curity/idsvr` to ensure that your Curity Identity Server instance is up to date.\
-The example configuration requires version 8.7 or higher of the Curity Identity Server.
+First copy a `license.json` file for the Curity Identity Server into the root folder.\
+Then run a Docker deployment and indicate how connected simulators or devices call the Curity Identity Server.
 
-1. Copy a Curity Identity Server license file to `license.json` in the code example root folder.
-2. Run the `./start-idsvr.sh` script to deploy a preconfigured Curity Identity Server via Docker. 
-3. Build and run the mobile app from Xcode using a simulator of your choice.
-4. There is a preconfigured user account you can sign-in with: demouser / Password1. Feel free to create additional accounts.
-5. Run the `./stop-idsvr.sh` script to free Docker resources.
+For example, run the following commands to connect to a macOS computer using its IP address.\
+Or you can set the `IDSVR_HOST_NAME` to `localhost` if you only want to test on simulators.
 
-By default the Curity Identity Server instance is contacted from the iOS simulator using the default host IP of `localhost`. 
+```bash
+export USE_NGROK='false'
+export IDSVR_HOST_NAME="$(ipconfig getifaddr en0)"
+./start-idsvr.sh
+```
 
-### Passkey Logins
+### 2. View Security Configuration
 
-To login with native passkeys you must configure associated domains for the app, according to the [Configure Native Passkeys for Mobile Logins](https://curity.io/resources/learn/mobile-logins-using-native-passkeys/) tutorial. The Docker automated setup provides working passkey logins if you install the ngrok tool as described in the [Mobile Setup](https://curity.io/resources/learn/mobile-setup-ngrok/) tutorial, then set the `USE_NGROK=true` variable at the top of the `start-server.sh` script, before running it. Using ngrok exposes the docker instance of the Curity Identity Server on the internet at a trusted SSL URL, so that associated domain registration works. 
+The [Mobile Deployments](https://github.com/curityio/mobile-deployments) repository explains further information about the deployed backend infrastructure.\
+You can view the [HAAPI Configuration](config/docker-template.xml) to understand the settings to apply to deployed environments.
 
-Using ngrok also enables testing with real devices, and enables you to run Android and iOS HAAPI code examples side by side.
+### 3. Test Basic Logins
 
-## Running the App
+Run the app and first test basic logins using an HTML Form authenticator.\
+Sign in to the deployed environment and use a pre-shipped test user account.
 
-### Simulator
+- Username: `demouser`
+- Password: `Password1`
 
-1. Make sure that the Curity Identity Server is running and configured.
-2. Start the demo application on a simulator running iOS 14 or higger
-3. Tap the button `Start Authentication` on the home screen to start the authentication flow.
+### 4. Test Native Passkey Logins
 
-### Physical Device
+Passkeys require hosting of assets documents at a trusted internet HTTPS URL.\
+You must also provide overrides with your own Apple team ID and unique bundle identifier.
 
-1. Make sure that the Curity Identity Server is running and reachable on the Internet (e.g., by using [ngrok](https://curity.io/resources/learn/expose-local-curity-ngrok/)).
-2. Adjust the settings in the `Configuration` module to reflect the instance of your Curity Identity Server.
-3. Build then install and start the demo application on your physical device.
-4. Tap the button `Start Authentication` on the home screen to start the authentication flow.
+You can use ngrok to host assets documents to enable the testing of passkeys logins.\
+The following example commands deploy the Curity Identity Server with a passkeys configuration.\
+See the tutorial link at the end of this README to learn more about the ngrok tool.
 
-## Configuring the App
+```bash
+export APPLE_TEAM_ID='MYTEAMID'
+export APPLE_BUNDLE_ID='io.myorganization.haapidemo'
+export USE_NGROK='true'
+./start-idsvr.sh
+```
 
-The application needs a few configuration options set to be able to call the instance of the Curity Identity Server. Default configuration is set to work with the dockerized version of the Curity Identity Server which is run with the `start-idsvr.sh` script. Should you need to make the app work with a different environment (e.g., you have your own instance of the Curity Identity Server already working online), then you should adjust settings,  by editing the `Configuration` module.
+In Xcode, configure the team ID and bundle ID under `Signing & Capabilities`.\
+Also ensure that Apple development tools sign the app, such as with the `Automatically manage signing` option.
 
-## Customizing the Look and Feel
+### 5. Free Deployment Resources
 
-The UI SDK allows for a simple change of the styles used by the view components. Have a look at the `XXX` files to see the techniques used in the demo app to change the default theme. Have a look at [the customization tutorial](https://curity.io/resources/learn/haapi-mobile-ios-customization) to learn more about changing the look and feel of your authentication flow.
+Once you have finished local testing, free all backend resources with the following command:
+
+```bash
+./stop-idsvr.sh
+```
+
+## Application Code
+
+The following links point you to the most essential areas of the example app's source code.
+
+### Main Source Files
+
+This app only authenticates the user, then displays the tokens obtained from the authorization server.\
+See the following source files to understand how that works:
+
+- The [Configuration](src/Configuration.swift) object contains all of the OpenID Connect settings.
+- The [DemoAppDelegate](src/DemoAppDelegate.swift) shows how to create a global object to complete the configuration.
+- The [UnauthenticatedView](src/Views/UnauthenticatedView.swift) shows the code needed to manage logins using the HAAPI UI SDK.
+- The [AuthenticatedView](src/Views/AuthenticatedView.swift) shows how to use tokens to call APIs once authentication completes.
+
+### Customizing the Look and Feel
+
+The [HAAPI iOS customization tutorial](https://curity.io/resources/learn/haapi-mobile-ios-customization) explains how to change the default theme.\
+See also the [Developer Documentation](https://curity.io/docs/haapi-ios-ui-kit/latest/) for the finer details of customization options.
 
 ## Resources
 
-- [HAAPI UI SDK Guide](https://curity.io/resources/learn/haapi-mobile-ios-integration) that shows all the aspects of working with the Curity's HAAPI UI SDK.
-- [A tutorial](https://curity.io/resources/learn/authentication-api-ios-sdk) that shows how to properly configure the Curity Identity Server and a client to use the Hypermedia API from an iOS app.
-- [An article](https://curity.io/resources/learn/what-is-hypermedia-authentication-api/) that explains the Hypermedia Authentication API.
+See the following tutorials for additional developer information:
 
-## More information
+- The [Swift iOS App using HAAPI](https://curity.io/resources/learn/swift-ios-haapi/) tutorial provides an overview of the code example's behaviors.
+- The [ngrok tutorials](https://curity.io/resources/learn/mobile-setup-ngrok/) explain how to use an internet URL and [view HAAPI messages](https://curity.io/resources/learn/expose-local-curity-ngrok/#ngrok-inspection-and-status).
+- The [Configure Native Passkeys for Mobile Logins](https://curity.io/resources/learn/mobile-logins-using-native-passkeys/) tutorial explains the technical setup when using passkeys.
+- The [HAAPI Mobile Guides](https://curity.io/resources/haapi-ui-sdk/) provide further details for HAAPI mobile developers.
+
+## Further information
 
 Please visit [curity.io](https://curity.io/) for more information about the Curity Identity Server.

@@ -36,6 +36,7 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
             .setOauthAuthorizationParamsProvider { OAuthAuthorizationParameters(
                 scopes: Configuration.scopes
             ) }
+            .setTokenBoundConfiguration(configuration: BoundedTokenConfiguration())
             .setURLSession(session: URLSession(configuration: .haapi,
                                                delegate: TrustAllCertsDelegate(),
                                                delegateQueue: nil))
