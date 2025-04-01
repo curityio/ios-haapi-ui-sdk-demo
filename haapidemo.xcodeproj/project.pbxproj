@@ -472,7 +472,7 @@
 			repositoryURL = "https://github.com/curityio/ios-idsvr-haapi-ui-kit-dist";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.4.0;
+				minimumVersion = 4.5.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
