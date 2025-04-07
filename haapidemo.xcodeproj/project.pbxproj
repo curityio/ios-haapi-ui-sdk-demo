@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2827D6FC2DA3CEAE004E0B43 /* CustomFormViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827D6FB2DA3CEAA004E0B43 /* CustomFormViewControllerFactory.swift */; };
+		2827D6FE2DA3D90C004E0B43 /* CustomDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827D6FD2DA3D904004E0B43 /* CustomDataMapper.swift */; };
+		2827D7042DA3E6E3004E0B43 /* HtmlFormLoginCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827D7032DA3E6DB004E0B43 /* HtmlFormLoginCustomViewController.swift */; };
+		2827D7062DA3E707004E0B43 /* HtmlFormLoginCustomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827D7052DA3E707004E0B43 /* HtmlFormLoginCustomModel.swift */; };
 		282A70EA2A5D694C000AE4FD /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A70E92A5D694C000AE4FD /* DemoApp.swift */; };
 		282A70EC2A5D694C000AE4FD /* UnauthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A70EB2A5D694C000AE4FD /* UnauthenticatedView.swift */; };
 		282A70EE2A5D694E000AE4FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282A70ED2A5D694E000AE4FD /* Assets.xcassets */; };
@@ -44,6 +48,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2827D6FB2DA3CEAA004E0B43 /* CustomFormViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFormViewControllerFactory.swift; sourceTree = "<group>"; };
+		2827D6FD2DA3D904004E0B43 /* CustomDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDataMapper.swift; sourceTree = "<group>"; };
+		2827D7032DA3E6DB004E0B43 /* HtmlFormLoginCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlFormLoginCustomViewController.swift; sourceTree = "<group>"; };
+		2827D7052DA3E707004E0B43 /* HtmlFormLoginCustomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlFormLoginCustomModel.swift; sourceTree = "<group>"; };
 		282A70E62A5D694C000AE4FD /* haapidemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = haapidemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282A70E92A5D694C000AE4FD /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
 		282A70EB2A5D694C000AE4FD /* UnauthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticatedView.swift; sourceTree = "<group>"; };
@@ -81,6 +89,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2827D6FA2DA3CE9B004E0B43 /* Extensibility */ = {
+			isa = PBXGroup;
+			children = (
+				2827D7032DA3E6DB004E0B43 /* HtmlFormLoginCustomViewController.swift */,
+				2827D7052DA3E707004E0B43 /* HtmlFormLoginCustomModel.swift */,
+				2827D6FD2DA3D904004E0B43 /* CustomDataMapper.swift */,
+				2827D6FB2DA3CEAA004E0B43 /* CustomFormViewControllerFactory.swift */,
+			);
+			path = Extensibility;
+			sourceTree = "<group>";
+		};
 		282A70DD2A5D694C000AE4FD = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +122,7 @@
 		282A70E82A5D694C000AE4FD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				2827D6FA2DA3CE9B004E0B43 /* Extensibility */,
 				28C9FD852A657A2700902F08 /* Configuration.swift */,
 				282A70E92A5D694C000AE4FD /* DemoApp.swift */,
 				282A70F72A5D6A81000AE4FD /* DemoAppDelegate.swift */,
@@ -236,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2827D6FE2DA3D90C004E0B43 /* CustomDataMapper.swift in Sources */,
 				287EE0D12A6AE6F000B628F1 /* UserInfoModel.swift in Sources */,
 				28C9FD842A655ED400902F08 /* ApplicationError.swift in Sources */,
 				28C9FD752A65391C00902F08 /* CustomButtonStyle.swift in Sources */,
@@ -248,9 +269,12 @@
 				28C9FD7E2A65405500902F08 /* ErrorView.swift in Sources */,
 				28C9FD712A6537D900902F08 /* TextStyles.swift in Sources */,
 				287EE0D52A6AE8FE00B628F1 /* UserInfoView.swift in Sources */,
+				2827D6FC2DA3CEAE004E0B43 /* CustomFormViewControllerFactory.swift in Sources */,
 				282A70FD2A5D7664000AE4FD /* TrustAllCertsDelegate.swift in Sources */,
+				2827D7042DA3E6E3004E0B43 /* HtmlFormLoginCustomViewController.swift in Sources */,
 				287EE0CB2A6AAE3500B628F1 /* ExpanderView.swift in Sources */,
 				282A70EC2A5D694C000AE4FD /* UnauthenticatedView.swift in Sources */,
+				2827D7062DA3E707004E0B43 /* HtmlFormLoginCustomModel.swift in Sources */,
 				287EE0D82A6AED8B00B628F1 /* AccessTokenView.swift in Sources */,
 				282A70EA2A5D694C000AE4FD /* DemoApp.swift in Sources */,
 			);

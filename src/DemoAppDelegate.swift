@@ -24,10 +24,11 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        HaapiLogger.followUpTags = DriverFollowUpTag.allCases + SdkFollowUpTag.allCases + UIKitFollowUpTag.allCases
+        // HaapiLogger.followUpTags = [DriverFollowUpTag.http] + [SdkFollowUpTag.http, SdkFollowUpTag.mapping] + UIKitFollowUpTag.allCases
         HaapiLogger.isInfoEnabled = true
         HaapiLogger.isDebugEnabled = false
         
+        // The base configuration
         let builder = HaapiUIKitConfigurationBuilder(clientId: Configuration.clientId,
                                                      baseUrl: Configuration.baseURL,
                                                      tokenEndpointUrl: Configuration.tokenEndpointURL,
@@ -43,6 +44,7 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
             .setPresentationMode(mode: PresentationMode.modal)
             .setShouldAutoHandleFlowErrorFeedback(value: false)
         
+        // If you run into particular iOS devices that do not support attestation you can activate DCR fallback
         if Configuration.dcrTemplateClientId != nil {
             
             builder.setClientAuthenticationMethod(method: ClientAuthenticationMethodSecret(secret: Configuration.deviceSecret!))
@@ -53,10 +55,18 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
         }
         
         let haapiUIKitConfiguration = builder.build()
+        
+        // Create extensibility objects to override presentation, data or logic
+        let resolver = ViewControllerFactoryRegistry()
+            .registerViewControllerFactoryFormModel(factory: CustomFormViewControllerFactory().createFormViewController)
+        let dataMapper = CustomDataMapper()
 
-        self.haapiUIKitApplication = HaapiUIKitApplicationBuilder(haapiUIKitConfiguration: haapiUIKitConfiguration)
+        // Create the application
+        try! self.haapiUIKitApplication = HaapiUIKitApplicationBuilder(haapiUIKitConfiguration: haapiUIKitConfiguration)
             .setThemingPlistFileName("CustomTheme")
-            .build()
+            .setViewControllerFactoryRegistry(registry: resolver)
+            .setDataMapper(dataMapper)
+            .buildOrThrow()
 
         self.oauthState = OAuthStateModel()
         return true
