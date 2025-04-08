@@ -19,8 +19,8 @@ import IdsvrHaapiUIKit
 /*
  * Customize the data for the HTML form's login screen
  */
-struct HtmlFormLoginCustomModel: FormModel {
-    var headerDescription: String
+struct HtmlFormLoginModel: FormModel {
+    var userMessage: String
     var interactionItems: [InteractionItemModel]
     var linkItems: [LinkItemModel]
     var messageItems: [InfoMessageModel]
@@ -30,11 +30,22 @@ struct HtmlFormLoginCustomModel: FormModel {
     /*
      * Remove Forgot Username and add a custom header description
      */
-    static func fromDefaultModel(formModel: FormModel) -> HtmlFormLoginCustomModel {
+    static func fromDefaultModel(formModel: FormModel) -> HtmlFormLoginModel {
         
-        return HtmlFormLoginCustomModel(
-            headerDescription: "This is a header description",
-            interactionItems: formModel.interactionItems,
+        /*
+        // InteractionItemText is private so I cannot update its value property
+        if let userNameControl = formModel.interactionItems.first(where: { $0.key == "userName" }) {
+            print("*** GOT USERNAME")
+        }
+        
+        // InteractionItemPassword is private so I cannot update its value property
+        if let passwordControl = formModel.interactionItems.first(where: { $0.key == "password" }) {
+            print("*** GOT PASSWORD")
+        }*/
+        
+        return HtmlFormLoginModel(
+            userMessage: "Enter your SecureBank credentials",
+            interactionItems: formModel.interactionItems.filter({$0.key != "login"}),
             linkItems: formModel.linkItems.filter({$0.rel != "forgot-account-id"}),
             messageItems: formModel.messageItems,
             templateArea: formModel.templateArea,

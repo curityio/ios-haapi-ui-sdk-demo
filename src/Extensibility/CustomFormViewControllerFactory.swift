@@ -17,20 +17,33 @@
 import IdsvrHaapiUIKit
 
 /*
- * Customize frontend form presentation or logic
+ * Customize frontend form logic
  */
 class CustomFormViewControllerFactory {
     
     /*
-     * Decide whether to create a custom form controller based on the model
+     * Override particular form screens
      */
     public func createFormViewController(model: FormModel, style: FormViewControllerStyle, commonStyle: HaapiUIViewControllerStyle) throws -> any HaapiUIViewController {
 
-        // Create a custom view controller to run custom logic on additional data in the model
-        if model is HtmlFormLoginCustomModel {
-            return HtmlFormLoginCustomFormViewController(model: model as! HtmlFormLoginCustomModel, style: style, commonStyle: commonStyle)
+        // Partially customize the HTML form login screen
+        if model is HtmlFormLoginModel {
+            return HtmlFormLoginCustomFormViewController(model: model, style: style, commonStyle: commonStyle)
         }
 
         return FormViewController(model, style: style, commonStyle: commonStyle)
+    }
+    
+    /*
+     * Override particular selector screens
+     */
+    public func createSelectorViewController(model: SelectorModel, style: SelectorViewControllerStyle, commonStyle: HaapiUIViewControllerStyle) throws -> any HaapiUIViewController {
+        
+        // Completely replacethe authentication selector screen
+        if model.viewName == "views/select-authenticator/index" {
+            return AuthenticationSelectionViewController(model: model)
+        }
+        
+        return SelectorViewController(model, style: style, commonStyle: commonStyle)
     }
 }

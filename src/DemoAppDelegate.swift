@@ -56,16 +56,18 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
         
         let haapiUIKitConfiguration = builder.build()
         
-        // Create extensibility objects to override presentation, data or logic
-        let resolver = ViewControllerFactoryRegistry()
-            .registerViewControllerFactoryFormModel(factory: CustomFormViewControllerFactory().createFormViewController)
+        // Create extensibility objects to override model data or logic
         let dataMapper = CustomDataMapper()
+        let viewFactory = CustomFormViewControllerFactory()
+        let resolver = ViewControllerFactoryRegistry()
+            .registerViewControllerFactoryFormModel(factory: viewFactory.createFormViewController)
+            .registerViewControllerFactorySelectorModel(factory: viewFactory.createSelectorViewController)
 
         // Create the application
         try! self.haapiUIKitApplication = HaapiUIKitApplicationBuilder(haapiUIKitConfiguration: haapiUIKitConfiguration)
             .setThemingPlistFileName("CustomTheme")
-            .setViewControllerFactoryRegistry(registry: resolver)
             .setDataMapper(dataMapper)
+            .setViewControllerFactoryRegistry(registry: resolver)
             .buildOrThrow()
 
         self.oauthState = OAuthStateModel()

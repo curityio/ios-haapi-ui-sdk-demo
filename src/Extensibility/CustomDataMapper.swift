@@ -35,16 +35,16 @@ class CustomDataMapper: DataMapper {
         
         let defaultModel = try defaultMapper.mapHaapiResultToUIModel(haapiResult: haapiResult)
         
-        // If this is the HTML login form then customize UI elements
+        // If this is the HTML login form then customize the model that HAAPI renders
         if let formModel = defaultModel as? FormModel {
             if formModel.viewName == "authenticator/html-form/authenticate/get" {
-                return HtmlFormLoginCustomModel.fromDefaultModel(formModel: formModel)
+                return HtmlFormLoginModel.fromDefaultModel(formModel: formModel)
             }
         }
         
         return defaultModel
     }
-
+    
     func mapHaapiRepresentationToInteraction(haapiRepresentation: any HaapiRepresentation) throws -> any UIInteractionModel {
         return try defaultMapper.mapHaapiRepresentationToInteraction(haapiRepresentation: haapiRepresentation)
     }
