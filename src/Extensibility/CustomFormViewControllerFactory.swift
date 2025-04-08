@@ -39,7 +39,7 @@ class CustomFormViewControllerFactory {
      */
     public func createSelectorViewController(model: SelectorModel, style: SelectorViewControllerStyle, commonStyle: HaapiUIViewControllerStyle) throws -> any HaapiUIViewController {
         
-        // Completely replacethe authentication selector screen
+        // Completely replace the authentication selector screen
         if model.viewName == "views/select-authenticator/index" {
             return AuthenticationSelectionViewController(model: model)
         }

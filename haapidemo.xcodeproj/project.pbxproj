@@ -33,6 +33,8 @@
 		28C9FD842A655ED400902F08 /* ApplicationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD832A655ED400902F08 /* ApplicationError.swift */; };
 		28C9FD862A657A2700902F08 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD852A657A2700902F08 /* Configuration.swift */; };
 		28FAF29E2DA5451C00A85932 /* AuthenticationSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAF29D2DA544FF00A85932 /* AuthenticationSelectionViewController.swift */; };
+		28FAF2A02DA57B0D00A85932 /* AuthenticationSelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAF29F2DA57B0900A85932 /* AuthenticationSelectorButton.swift */; };
+		28FAF2A52DA58BE000A85932 /* AuthenticationSelectorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAF2A42DA58BE000A85932 /* AuthenticationSelectorLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -77,6 +79,8 @@
 		28C9FD832A655ED400902F08 /* ApplicationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationError.swift; sourceTree = "<group>"; };
 		28C9FD852A657A2700902F08 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		28FAF29D2DA544FF00A85932 /* AuthenticationSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSelectionViewController.swift; sourceTree = "<group>"; };
+		28FAF29F2DA57B0900A85932 /* AuthenticationSelectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSelectorButton.swift; sourceTree = "<group>"; };
+		28FAF2A42DA58BE000A85932 /* AuthenticationSelectorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSelectorLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 				2827D6FD2DA3D904004E0B43 /* CustomDataMapper.swift */,
 				2827D6FB2DA3CEAA004E0B43 /* CustomFormViewControllerFactory.swift */,
 				28FAF29D2DA544FF00A85932 /* AuthenticationSelectionViewController.swift */,
+				28FAF29F2DA57B0900A85932 /* AuthenticationSelectorButton.swift */,
+				28FAF2A42DA58BE000A85932 /* AuthenticationSelectorLabel.swift */,
 				2827D7052DA3E707004E0B43 /* HtmlFormLoginModel.swift */,
 				2827D7032DA3E6DB004E0B43 /* HtmlFormLoginViewController.swift */,
 			);
@@ -125,10 +131,10 @@
 		282A70E82A5D694C000AE4FD /* src */ = {
 			isa = PBXGroup;
 			children = (
-				2827D6FA2DA3CE9B004E0B43 /* Extensibility */,
 				28C9FD852A657A2700902F08 /* Configuration.swift */,
 				282A70E92A5D694C000AE4FD /* DemoApp.swift */,
 				282A70F72A5D6A81000AE4FD /* DemoAppDelegate.swift */,
+				2827D6FA2DA3CE9B004E0B43 /* Extensibility */,
 				287EE0D62A6AED0100B628F1 /* Models */,
 				28C9FD632A6526D400902F08 /* Views */,
 				28C9FD692A65271D00902F08 /* Utilities */,
@@ -273,9 +279,11 @@
 				28C9FD7E2A65405500902F08 /* ErrorView.swift in Sources */,
 				28C9FD712A6537D900902F08 /* TextStyles.swift in Sources */,
 				287EE0D52A6AE8FE00B628F1 /* UserInfoView.swift in Sources */,
+				28FAF2A52DA58BE000A85932 /* AuthenticationSelectorLabel.swift in Sources */,
 				2827D6FC2DA3CEAE004E0B43 /* CustomFormViewControllerFactory.swift in Sources */,
 				282A70FD2A5D7664000AE4FD /* TrustAllCertsDelegate.swift in Sources */,
 				2827D7042DA3E6E3004E0B43 /* HtmlFormLoginViewController.swift in Sources */,
+				28FAF2A02DA57B0D00A85932 /* AuthenticationSelectorButton.swift in Sources */,
 				287EE0CB2A6AAE3500B628F1 /* ExpanderView.swift in Sources */,
 				282A70EC2A5D694C000AE4FD /* UnauthenticatedView.swift in Sources */,
 				2827D7062DA3E707004E0B43 /* HtmlFormLoginModel.swift in Sources */,
@@ -408,10 +416,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = haapidemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = U3VTCHYEM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = info.plist;
@@ -427,7 +435,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.curity.haapidemo;
+				PRODUCT_BUNDLE_IDENTIFIER = io.garyarcher.haapidemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -443,10 +451,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = haapidemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = U3VTCHYEM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = info.plist;
@@ -462,7 +470,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.curity.haapidemo;
+				PRODUCT_BUNDLE_IDENTIFIER = io.garyarcher.haapidemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
