@@ -52,7 +52,7 @@ struct UnauthenticatedView: View, HaapiFlowResult {
             Image("StartIllustration")
                 .aspectRatio(contentMode: .fit)
                 .padding(.top, 60)
-            
+
             Button {
                 self.oauthState.isLoggingIn = true
             } label: {
@@ -67,10 +67,10 @@ struct UnauthenticatedView: View, HaapiFlowResult {
         }
         .sheet(isPresented: $oauthState.isLoggingIn) {
             
-            /*try!*/ HaapiFlow.start(
-                    self,
-                    haapiUIKitApplication: self.haapiApplication,
-                    haapiDeepLinkManageable: HaapiDeepLinkManager.shared)
+            HaapiFlow.start(
+                self,
+                haapiUIKitApplication: self.haapiApplication,
+                haapiDeepLinkManageable: HaapiDeepLinkManager.shared)
         }
     }
     
