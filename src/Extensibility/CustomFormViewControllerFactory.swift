@@ -28,7 +28,7 @@ class CustomFormViewControllerFactory {
 
         // Partially customize the HTML form login screen
         if model is HtmlFormLoginModel {
-            return HtmlFormLoginCustomFormViewController(model: model, style: style, commonStyle: commonStyle)
+            return HtmlFormLoginFormViewController(model: model, style: style, commonStyle: commonStyle)
         }
 
         return FormViewController(model, style: style, commonStyle: commonStyle)

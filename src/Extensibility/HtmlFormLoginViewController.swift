@@ -20,7 +20,7 @@ import IdsvrHaapiUIKit
 /*
  * Customize the view controller for the HTML form's login screen
  */
-class HtmlFormLoginCustomFormViewController: FormViewController {
+class HtmlFormLoginFormViewController: FormViewController {
     
     init(model: FormModel, style: FormViewControllerStyle, commonStyle: HaapiUIViewControllerStyle) {
         super.init(model, style: style, commonStyle: commonStyle)
@@ -48,7 +48,11 @@ class HtmlFormLoginCustomFormViewController: FormViewController {
     /*
      * Do any custom validation before submitting the login data to the Curity Identity Server
      */
-    override func preSubmit(interactionActionModel: InteractionActionModel, parameters: [String: Any], closure: @escaping (Bool, [String: Any]) -> Void) {
+    override func preSubmit(
+        interactionActionModel: InteractionActionModel,
+        parameters: [String: Any],
+        closure: @escaping (Bool, [String: Any]) -> Void) {
+        
         closure(true, parameters)
     }
 }

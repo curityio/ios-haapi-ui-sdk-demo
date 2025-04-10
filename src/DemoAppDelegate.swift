@@ -24,9 +24,9 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // HaapiLogger.followUpTags = [DriverFollowUpTag.http] + [SdkFollowUpTag.http, SdkFollowUpTag.mapping] + UIKitFollowUpTag.allCases
+        HaapiLogger.followUpTags = DriverFollowUpTag.allCases + SdkFollowUpTag.allCases + UIKitFollowUpTag.allCases
         HaapiLogger.isInfoEnabled = true
-        HaapiLogger.isDebugEnabled = false
+        HaapiLogger.isDebugEnabled = true
         
         // The base configuration
         let builder = HaapiUIKitConfigurationBuilder(clientId: Configuration.clientId,
@@ -64,11 +64,12 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
             .registerViewControllerFactorySelectorModel(factory: viewFactory.createSelectorViewController)
 
         // Create the application
-        try! self.haapiUIKitApplication = HaapiUIKitApplicationBuilder(haapiUIKitConfiguration: haapiUIKitConfiguration)
-            .setThemingPlistFileName("CustomTheme")
-            .setDataMapper(dataMapper)
-            .setViewControllerFactoryRegistry(registry: resolver)
-            .buildOrThrow()
+        try! self.haapiUIKitApplication = HaapiUIKitApplicationBuilder(
+            haapiUIKitConfiguration: haapiUIKitConfiguration)
+                .setThemingPlistFileName("CustomTheme")
+                .setDataMapper(dataMapper)
+                .setViewControllerFactoryRegistry(registry: resolver)
+                .buildOrThrow()
 
         self.oauthState = OAuthStateModel()
         return true
