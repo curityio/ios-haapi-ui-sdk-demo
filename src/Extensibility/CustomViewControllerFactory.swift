@@ -17,9 +17,9 @@
 import IdsvrHaapiUIKit
 
 /*
- * Customize frontend form logic
+ * Create custom view controllers for particular login screens
  */
-class CustomFormViewControllerFactory {
+class CustomViewControllerFactory {
     
     /*
      * Override particular form screens

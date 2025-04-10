@@ -55,9 +55,9 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
         
         let haapiUIKitConfiguration = builder.build()
         
-        // Create extensibility objects to override model data or logic
+        // Create extensibility objects to override model data or view logic
         let dataMapper = CustomDataMapper()
-        let viewFactory = CustomFormViewControllerFactory()
+        let viewFactory = CustomViewControllerFactory()
         let resolver = ViewControllerFactoryRegistry()
             .registerViewControllerFactoryFormModel(factory: viewFactory.createFormViewController)
             .registerViewControllerFactorySelectorModel(factory: viewFactory.createSelectorViewController)

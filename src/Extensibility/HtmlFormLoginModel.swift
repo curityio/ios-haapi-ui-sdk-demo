@@ -20,7 +20,7 @@ import IdsvrHaapiUIKit
  * Customize the data for the HTML form's login screen
  */
 struct HtmlFormLoginModel: FormModel {
-    var userMessage: String
+    var bannerText: String
     var interactionItems: [InteractionItemModel]
     var linkItems: [LinkItemModel]
     var messageItems: [InfoMessageModel]
@@ -28,23 +28,13 @@ struct HtmlFormLoginModel: FormModel {
     var viewName: String?
     
     /*
-     * Remove Forgot Username and add a custom header description
+     * Remove the Forgot Username link
+     * Also replace the Login title with some custom banner text
      */
     static func fromDefaultModel(formModel: FormModel) -> HtmlFormLoginModel {
         
-        /*
-        // InteractionItemText is private so I cannot update its value property
-        if let userNameControl = formModel.interactionItems.first(where: { $0.key == "userName" }) {
-            print("*** GOT USERNAME")
-        }
-        
-        // InteractionItemPassword is private so I cannot update its value property
-        if let passwordControl = formModel.interactionItems.first(where: { $0.key == "password" }) {
-            print("*** GOT PASSWORD")
-        }*/
-        
         return HtmlFormLoginModel(
-            userMessage: "Enter your SecureBank credentials",
+            bannerText: "Sign in with your SecureBank credentials",
             interactionItems: formModel.interactionItems.filter({$0.key != "login"}),
             linkItems: formModel.linkItems.filter({$0.rel != "forgot-account-id"}),
             messageItems: formModel.messageItems,

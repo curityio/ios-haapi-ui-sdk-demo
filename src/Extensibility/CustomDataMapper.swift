@@ -17,7 +17,7 @@
 import IdsvrHaapiUIKit
 
 /*
- * The custom data mapper overrides model data from HAAPI responses for particular screens
+ * This custom data mapper overrides model data from HAAPI responses for particular screens
  */
 class CustomDataMapper: DataMapper {
 

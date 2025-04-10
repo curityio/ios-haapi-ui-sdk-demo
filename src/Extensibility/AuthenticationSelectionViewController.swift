@@ -19,7 +19,8 @@ import IdsvrHaapiUIKit
 
 /*
  * Demonstrates replacing an entire screen with a completely custom layout
- * This example renders the authentication selection screen in a custom way, with passkeys shown first
+ * This example renders the authentication selection screen in a custom way
+ * Passkeys are rendered first to encourage users to choose a modern and secure login method
  */
 class AuthenticationSelectionViewController: UIViewController, HaapiUIViewController {
     
