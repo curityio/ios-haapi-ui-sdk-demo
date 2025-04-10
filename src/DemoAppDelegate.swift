@@ -28,11 +28,11 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
         HaapiLogger.isInfoEnabled = true
         HaapiLogger.isDebugEnabled = false
         
-        let haapiUIKitConfiguration = HaapiUIKitConfigurationBuilder(clientId: Configuration.clientId,
-                                                                     baseUrl: Configuration.baseURL,
-                                                                     tokenEndpointUrl: Configuration.tokenEndpointURL,
-                                                                     authorizationEndpointUrl: Configuration.authorizationEndpointURL,
-                                                                     appRedirect: Configuration.redirectUri)
+        let builder = HaapiUIKitConfigurationBuilder(clientId: Configuration.clientId,
+                                                     baseUrl: Configuration.baseURL,
+                                                     tokenEndpointUrl: Configuration.tokenEndpointURL,
+                                                     authorizationEndpointUrl: Configuration.authorizationEndpointURL,
+                                                     appRedirect: Configuration.redirectUri)
             .setOauthAuthorizationParamsProvider { OAuthAuthorizationParameters(
                 scopes: Configuration.scopes
             ) }
@@ -42,12 +42,22 @@ class DemoAppDelegate: NSObject, UIApplicationDelegate {
                                                delegateQueue: nil))
             .setPresentationMode(mode: PresentationMode.modal)
             .setShouldAutoHandleFlowErrorFeedback(value: false)
-            .build()
         
+        if Configuration.dcrTemplateClientId != nil {
+            
+            builder.setClientAuthenticationMethod(method: ClientAuthenticationMethodSecret(secret: Configuration.deviceSecret!))
+            builder.setDCRConfiguration(configuration: DCRConfiguration(
+                templateClientId: Configuration.dcrTemplateClientId!,
+                clientRegistrationEndpointUrl: URL(string: Configuration.dcrClientRegistrationEndpointPath!,
+                                                   relativeTo: Configuration.baseURL)!))
+        }
+        
+        let haapiUIKitConfiguration = builder.build()
+
         self.haapiUIKitApplication = HaapiUIKitApplicationBuilder(haapiUIKitConfiguration: haapiUIKitConfiguration)
             .setThemingPlistFileName("CustomTheme")
             .build()
-        
+
         self.oauthState = OAuthStateModel()
         return true
     }
