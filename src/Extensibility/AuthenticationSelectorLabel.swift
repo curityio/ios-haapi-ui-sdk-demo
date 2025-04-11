@@ -48,6 +48,6 @@ class AuthenticationSelectorLabel: UILabel {
             return "You can also sign in with a traditional username and password"
         }
         
-        return "Sign in with \(type)"
+        return ""
     }
 }

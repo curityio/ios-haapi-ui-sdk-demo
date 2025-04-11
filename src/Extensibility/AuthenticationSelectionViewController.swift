@@ -48,6 +48,10 @@ class AuthenticationSelectionViewController: UIViewController, HaapiUIViewContro
         super.init(nibName: nil, bundle: nil)
     }
     
+    /*
+     * Render a header followed by authentication selection items
+     * Each item is a heading and a button
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,7 +68,7 @@ class AuthenticationSelectionViewController: UIViewController, HaapiUIViewContro
         let header = UILabel(frame: .zero)
         header.text = "Choose a Login Method"
         header.font = UIFont.boldSystemFont(ofSize: 24)
-        header.textColor = UIColor(named: "GeneralText")
+        header.textColor = UIColor(named: "Primary")
         header.textAlignment = .center
         content.addArrangedSubview(header)
         let headerConstraints: [NSLayoutConstraint] = [
@@ -155,6 +159,9 @@ class AuthenticationSelectionViewController: UIViewController, HaapiUIViewContro
         }
     }
     
+    /*
+     * The custom view must submit the correct authentication selection to the server
+     */
     @objc private func onAuthenticatorSelected(_ sender: AuthenticationSelectorButton) {
         let parameters: [String: String] = [:]
         self.haapiFlowViewControllerDelegate?.submit(interactionActionModel: sender.getModel(), parameters: parameters)

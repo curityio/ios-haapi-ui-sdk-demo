@@ -27,7 +27,7 @@ class HtmlFormLoginFormViewController: FormViewController {
     }
 
     /*
-     * Implement custom logic when the view loads
+     * Adjust UI elements when the view loads
      */
     override func viewDidLoad() {
         super.viewDidLoad()

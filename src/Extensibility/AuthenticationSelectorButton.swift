@@ -50,7 +50,7 @@ class AuthenticationSelectorButton: UIButton {
             return "Sign in with a password"
         }
         
-        return "Sign in with \(getType())"
+        return ""
     }
     
     public func getType() -> String {
