@@ -19,8 +19,6 @@ import IdsvrHaapiUIKit
 
 /*
  * Demonstrates replacing an entire screen with a completely custom layout
- * This example renders the authentication selection screen in a custom way
- * Passkeys are rendered first to encourage users to choose a modern and secure login method
  */
 class AuthenticationSelectionViewController: UIViewController, HaapiUIViewController {
     
@@ -28,17 +26,6 @@ class AuthenticationSelectionViewController: UIViewController, HaapiUIViewContro
     var uiStylableThemeDelegate: UIStylableThemeDelegate?
     var model: SelectorModel
  
-    lazy var content: UIStackView = {
-        let view = UIStackView()
-        view.axis = .vertical
-        view.alignment = .center
-        view.distribution = .equalSpacing
-        view.spacing = 16
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .clear
-        return view
-    }()
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -49,50 +36,19 @@ class AuthenticationSelectionViewController: UIViewController, HaapiUIViewContro
     }
     
     /*
-     * Render a header followed by authentication selection items
-     * Each item is a heading and a button
+     * Build a custom screen to completely replace the default SelectorViewController
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.addSubview(content)
-        
-        let contentConstraints: [NSLayoutConstraint] = [
-            content.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            content.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            content.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
-            content.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
-        ]
-        NSLayoutConstraint.activate(contentConstraints)
-        
-        let header = UILabel(frame: .zero)
-        header.text = "Choose a Login Method"
-        header.font = UIFont.boldSystemFont(ofSize: 24)
-        header.textColor = UIColor(named: "Primary")
-        header.textAlignment = .center
-        content.addArrangedSubview(header)
-        let headerConstraints: [NSLayoutConstraint] = [
-            header.leadingAnchor.constraint(equalTo: self.content.leadingAnchor, constant: 30),
-            header.trailingAnchor.constraint(equalTo: self.content.trailingAnchor, constant: -30),
-            header.heightAnchor.constraint(equalToConstant: 50),
-        ]
-        NSLayoutConstraint.activate(headerConstraints)
-        
-        var authenticators = model.selectorItems
-            .compactMap { $0 as? SelectorItemInteractionActionModel }
-        
-        authenticators
-            .sort {
-                let first  = $0.type ?? ""
-                let second = $1.type ?? ""
-                if first == "passkeys" { return true }
-                if second == "passkeys" { return false }
-                return first < second
-            }
-        
-        authenticators.forEach({item in
-            renderAuthenticator(item: item)
-        })
+        buildCustomScreen()
+    }
+
+    /*
+     * The custom view must submit the correct authentication selection to the server
+     */
+    @objc private func onAuthenticatorSelected(_ sender: AuthenticationSelectorButton) {
+        let parameters: [String: String] = [:]
+        self.haapiFlowViewControllerDelegate?.submit(interactionActionModel: sender.getModel(), parameters: parameters)
     }
     
     func onAction() {
@@ -134,36 +90,80 @@ class AuthenticationSelectionViewController: UIViewController, HaapiUIViewContro
         closure(true)
     }
     
-    private func renderAuthenticator(item: SelectorItemInteractionActionModel) {
-        
-        let itemType = item.type ?? ""
-        if item.action is FormActionModel {
-            
-            let label = AuthenticationSelectorLabel(authenticatorType: itemType)
-            content.addArrangedSubview(label)
-            let lblConstraints: [NSLayoutConstraint] = [
-                label.leadingAnchor.constraint(equalTo: self.content.leadingAnchor, constant: 30),
-                label.trailingAnchor.constraint(equalTo: self.content.trailingAnchor, constant: -30)
-            ]
-            NSLayoutConstraint.activate(lblConstraints)
-            
-            let button = AuthenticationSelectorButton(model: item)
-            button.addTarget(self, action: #selector(onAuthenticatorSelected(_:)), for: .touchUpInside)
-            content.addArrangedSubview(button)
-            let btnConstraints: [NSLayoutConstraint] = [
-                button.leadingAnchor.constraint(equalTo: self.content.leadingAnchor, constant: 30),
-                button.trailingAnchor.constraint(equalTo: self.content.trailingAnchor, constant: -30),
-                button.heightAnchor.constraint(equalToConstant: 48),
-            ]
-            NSLayoutConstraint.activate(btnConstraints)
-        }
-    }
-    
     /*
-     * The custom view must submit the correct authentication selection to the server
+     * Do the work to build an entire screen from built-in and custom controls
      */
-    @objc private func onAuthenticatorSelected(_ sender: AuthenticationSelectorButton) {
-        let parameters: [String: String] = [:]
-        self.haapiFlowViewControllerDelegate?.submit(interactionActionModel: sender.getModel(), parameters: parameters)
+    private func buildCustomScreen() {
+        
+        // Add a containing view
+        let content = UIStackView()
+        content.axis = .vertical
+        content.alignment = .center
+        content.distribution = .equalSpacing
+        content.spacing = 16
+        content.translatesAutoresizingMaskIntoConstraints = false
+        content.backgroundColor = .clear
+        self.view.addSubview(content)
+    
+        let contentConstraints: [NSLayoutConstraint] = [
+            content.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            content.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            content.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            content.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+        ]
+        NSLayoutConstraint.activate(contentConstraints)
+        
+        // Render a header to prompt the user to choose a login method
+        let header = UILabel(frame: .zero)
+        header.text = "Choose a Login Method"
+        header.font = UIFont.boldSystemFont(ofSize: 24)
+        header.textColor = UIColor(named: "Primary")
+        header.textAlignment = .center
+        content.addArrangedSubview(header)
+        let headerConstraints: [NSLayoutConstraint] = [
+            header.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 30),
+            header.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -30),
+            header.heightAnchor.constraint(equalToConstant: 50),
+        ]
+        NSLayoutConstraint.activate(headerConstraints)
+        
+        // Sort so that passkeys are rendered first, to encourage users to choose a modern and secure login method
+        var selectorItems = model.selectorItems
+            .compactMap { $0 as? SelectorItemInteractionActionModel }
+        
+        selectorItems
+            .sort {
+                let first  = $0.type ?? ""
+                let second = $1.type ?? ""
+                if first == "passkeys" { return true }
+                if second == "passkeys" { return false }
+                return first < second
+            }
+        
+        // Render each authentication selector as a description and then a button
+        selectorItems.forEach({item in
+            
+            let itemType = item.type ?? ""
+            if item.action is FormActionModel {
+                
+                let label = AuthenticationSelectorLabel(authenticatorType: itemType)
+                content.addArrangedSubview(label)
+                let lblConstraints: [NSLayoutConstraint] = [
+                    label.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 30),
+                    label.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -30)
+                ]
+                NSLayoutConstraint.activate(lblConstraints)
+                
+                let button = AuthenticationSelectorButton(model: item)
+                button.addTarget(self, action: #selector(onAuthenticatorSelected(_:)), for: .touchUpInside)
+                content.addArrangedSubview(button)
+                let btnConstraints: [NSLayoutConstraint] = [
+                    button.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 10),
+                    button.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -10),
+                    button.heightAnchor.constraint(equalToConstant: 48),
+                ]
+                NSLayoutConstraint.activate(btnConstraints)
+            }
+        })
     }
 }
