@@ -25,7 +25,6 @@ struct ErrorReader {
     
     static func getBackendErrorDescription(error: HaapiError) -> String {
         
-        var parts: [String] = []
         var code = ""
         var description = ""
         
@@ -37,6 +36,7 @@ struct ErrorReader {
         default: description = error.failureReason
         }
         
+        var parts: [String] = []
         parts.append("code: \(code)")
         parts.append(description)
         return parts.joined(separator: ", ")
@@ -46,6 +46,7 @@ struct ErrorReader {
         
         var code        = ""
         var description = ""
+        
         switch error
         {
         case .illegalState(let reason): code = "illegal_state"; description = reason
