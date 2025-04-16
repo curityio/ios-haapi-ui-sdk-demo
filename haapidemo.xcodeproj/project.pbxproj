@@ -24,6 +24,7 @@
 		287EE0D52A6AE8FE00B628F1 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EE0D42A6AE8FE00B628F1 /* UserInfoView.swift */; };
 		287EE0D82A6AED8B00B628F1 /* AccessTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EE0D72A6AED8B00B628F1 /* AccessTokenView.swift */; };
 		289B58552AFD05A700366FBA /* IdsvrHaapiUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 289B58542AFD05A700366FBA /* IdsvrHaapiUIKit */; };
+		289FF4102DAFCE48005ABF2B /* ErrorReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF40F2DAFCE3F005ABF2B /* ErrorReader.swift */; };
 		28C9FD6B2A65278800902F08 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD6A2A65278800902F08 /* MainView.swift */; };
 		28C9FD6F2A65315400902F08 /* OAuthStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD6E2A65315400902F08 /* OAuthStateModel.swift */; };
 		28C9FD712A6537D900902F08 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD702A6537D900902F08 /* TextStyles.swift */; };
@@ -70,6 +71,7 @@
 		287EE0D42A6AE8FE00B628F1 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		287EE0D72A6AED8B00B628F1 /* AccessTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenView.swift; sourceTree = "<group>"; };
 		289B58522AFD021400366FBA /* haapidemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = haapidemo.entitlements; sourceTree = "<group>"; };
+		289FF40F2DAFCE3F005ABF2B /* ErrorReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReader.swift; sourceTree = "<group>"; };
 		28C9FD6A2A65278800902F08 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		28C9FD6E2A65315400902F08 /* OAuthStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthStateModel.swift; sourceTree = "<group>"; };
 		28C9FD702A6537D900902F08 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		28C9FD692A65271D00902F08 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				289FF40F2DAFCE3F005ABF2B /* ErrorReader.swift */,
 				28C9FD742A65391C00902F08 /* CustomButtonStyle.swift */,
 				28C9FD702A6537D900902F08 /* TextStyles.swift */,
 				282A70FC2A5D7664000AE4FD /* TrustAllCertsDelegate.swift */,
@@ -281,6 +284,7 @@
 				287EE0D52A6AE8FE00B628F1 /* UserInfoView.swift in Sources */,
 				28FAF2A52DA58BE000A85932 /* AuthenticationSelectorLabel.swift in Sources */,
 				2827D6FC2DA3CEAE004E0B43 /* CustomViewControllerFactory.swift in Sources */,
+				289FF4102DAFCE48005ABF2B /* ErrorReader.swift in Sources */,
 				282A70FD2A5D7664000AE4FD /* TrustAllCertsDelegate.swift in Sources */,
 				2827D7042DA3E6E3004E0B43 /* HtmlFormLoginViewController.swift in Sources */,
 				28FAF2A02DA57B0D00A85932 /* AuthenticationSelectorButton.swift in Sources */,

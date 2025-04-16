@@ -46,7 +46,6 @@ struct AuthenticatedView: View, HaapiFlowResult {
                         .padding(.top, 20)
                 } else {
                     ErrorView(error: self.error!)
-                        .padding(.top, 20)
                 }
                 
                 VStack {
@@ -174,8 +173,17 @@ struct AuthenticatedView: View, HaapiFlowResult {
 
     func didReceiveOAuthModel(_ tokens: OAuthModel) {
 
+        if let error = tokens as? OAuthErrorModel {
+            self.error = ApplicationError(
+                title: "HAAPI Token Error",
+                description: ErrorReader.getTokenErrorDescription(error: error))
+            return
+        }
+
         guard let model = tokens as? OAuthTokenModel else {
-            self.error = ApplicationError(title: "HAAPI Token Refresh Error", description: "No tokens returned in token refresh response")
+            self.error = ApplicationError(
+                title: "HAAPI Token Error",
+                description: "No tokens returned in token response")
             return
         }
         
@@ -184,6 +192,25 @@ struct AuthenticatedView: View, HaapiFlowResult {
     }
 
     func didReceiveError(_ error: Error) {
-        self.error = ApplicationError(title: "HAAPI Token Refresh Error", description: error.localizedDescription)
+        
+        self.oauthState.isLoggingIn = false
+        if let backendError = error as? HaapiError {
+            
+            self.error = ApplicationError(
+                title: "HAAPI Server Error",
+                description: ErrorReader.getBackendErrorDescription(error: backendError))
+    
+        } else if let frontendError = error as? HaapiUIKitError {
+            
+            self.error = ApplicationError(
+                title: "HAAPI Client Error",
+                description: ErrorReader.getFrontendErrorDescription(error: frontendError))
+    
+        } else {
+    
+            self.error = ApplicationError(
+                title: "HAAPI Error",
+                description: error.localizedDescription)
+        }
     }
 }

@@ -32,14 +32,14 @@ struct ErrorView: View {
             
             Text(self.error.title)
                 .headingStyle()
-                .padding(.top, 20)
+                .padding(.top, 10)
                 .padding(.leading, 20)
                 .frame(width: deviceWidth, alignment: .leading)
             
             Text(self.error.getDetails())
                 .errorValueStyle()
                 .padding(.leading, 20)
-                .frame(width: deviceWidth, alignment: .leading)
+                .frame(width: deviceWidth, height: 80, alignment: .top)
         }
     }
 }
