@@ -17,7 +17,7 @@
 import IdsvrHaapiUIKit
 
 /*
- * Create custom view controllers for particular login screens
+ * The entry point for customizing view logic
  */
 class CustomViewControllerFactory {
     

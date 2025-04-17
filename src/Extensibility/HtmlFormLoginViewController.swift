@@ -35,7 +35,7 @@ class HtmlFormLoginFormViewController: FormViewController {
             
             // This simple customization replaces the default 'Login' heading with colored banner text
             let banner = UILabel(frame: .zero)
-            banner.text = customModel.bannerText
+            banner.text = customModel.extraData
             banner.font = UIFont.boldSystemFont(ofSize: 18)
             banner.textColor = UIColor(named: "Primary")
             banner.textAlignment = .center

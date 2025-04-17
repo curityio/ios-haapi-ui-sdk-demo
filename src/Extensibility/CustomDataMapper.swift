@@ -17,7 +17,7 @@
 import IdsvrHaapiUIKit
 
 /*
- * This custom data mapper overrides model data from HAAPI responses for particular screens
+ * The entry point for customizing UI models
  */
 class CustomDataMapper: DataMapper {
 
@@ -38,7 +38,7 @@ class CustomDataMapper: DataMapper {
         // If this is the HTML login form then customize the model that HAAPI renders
         if let formModel = defaultModel as? FormModel {
             if formModel.viewName == "authenticator/html-form/authenticate/get" {
-                return HtmlFormLoginModel.fromDefaultModel(formModel: formModel)
+                return HtmlFormLoginModel.create(formModel: formModel)
             }
         }
         
