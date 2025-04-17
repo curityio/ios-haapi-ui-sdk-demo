@@ -19,7 +19,7 @@ import IdsvrHaapiUIKit
 /*
  * The entry point for customizing view logic
  */
-class CustomViewControllerFactory {
+class CustomViewControllerResolver {
     
     /*
      * Override particular form screens
