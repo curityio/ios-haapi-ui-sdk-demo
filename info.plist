@@ -8,7 +8,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string>io.curity.haapi</string>
+			<string>io.curity.haapidemo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>haapi</string>

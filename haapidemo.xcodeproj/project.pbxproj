@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2827D6FC2DA3CEAE004E0B43 /* CustomViewControllerResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827D6FB2DA3CEAA004E0B43 /* CustomViewControllerResolver.swift */; };
+		2827D6FE2DA3D90C004E0B43 /* CustomDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827D6FD2DA3D904004E0B43 /* CustomDataMapper.swift */; };
+		2827D7042DA3E6E3004E0B43 /* HtmlFormLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827D7032DA3E6DB004E0B43 /* HtmlFormLoginViewController.swift */; };
+		2827D7062DA3E707004E0B43 /* HtmlFormLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827D7052DA3E707004E0B43 /* HtmlFormLoginModel.swift */; };
 		282A70EA2A5D694C000AE4FD /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A70E92A5D694C000AE4FD /* DemoApp.swift */; };
 		282A70EC2A5D694C000AE4FD /* UnauthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A70EB2A5D694C000AE4FD /* UnauthenticatedView.swift */; };
 		282A70EE2A5D694E000AE4FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282A70ED2A5D694E000AE4FD /* Assets.xcassets */; };
@@ -20,6 +24,7 @@
 		287EE0D52A6AE8FE00B628F1 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EE0D42A6AE8FE00B628F1 /* UserInfoView.swift */; };
 		287EE0D82A6AED8B00B628F1 /* AccessTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EE0D72A6AED8B00B628F1 /* AccessTokenView.swift */; };
 		289B58552AFD05A700366FBA /* IdsvrHaapiUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 289B58542AFD05A700366FBA /* IdsvrHaapiUIKit */; };
+		289FF4102DAFCE48005ABF2B /* ErrorReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FF40F2DAFCE3F005ABF2B /* ErrorReader.swift */; };
 		28C9FD6B2A65278800902F08 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD6A2A65278800902F08 /* MainView.swift */; };
 		28C9FD6F2A65315400902F08 /* OAuthStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD6E2A65315400902F08 /* OAuthStateModel.swift */; };
 		28C9FD712A6537D900902F08 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD702A6537D900902F08 /* TextStyles.swift */; };
@@ -28,6 +33,9 @@
 		28C9FD7E2A65405500902F08 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD7D2A65405500902F08 /* ErrorView.swift */; };
 		28C9FD842A655ED400902F08 /* ApplicationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD832A655ED400902F08 /* ApplicationError.swift */; };
 		28C9FD862A657A2700902F08 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9FD852A657A2700902F08 /* Configuration.swift */; };
+		28FAF29E2DA5451C00A85932 /* AuthenticationSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAF29D2DA544FF00A85932 /* AuthenticationSelectionViewController.swift */; };
+		28FAF2A02DA57B0D00A85932 /* AuthenticationSelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAF29F2DA57B0900A85932 /* AuthenticationSelectorButton.swift */; };
+		28FAF2A52DA58BE000A85932 /* AuthenticationSelectorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAF2A42DA58BE000A85932 /* AuthenticationSelectorLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +52,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2827D6FB2DA3CEAA004E0B43 /* CustomViewControllerResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewControllerResolver.swift; sourceTree = "<group>"; };
+		2827D6FD2DA3D904004E0B43 /* CustomDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDataMapper.swift; sourceTree = "<group>"; };
+		2827D7032DA3E6DB004E0B43 /* HtmlFormLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlFormLoginViewController.swift; sourceTree = "<group>"; };
+		2827D7052DA3E707004E0B43 /* HtmlFormLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlFormLoginModel.swift; sourceTree = "<group>"; };
 		282A70E62A5D694C000AE4FD /* haapidemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = haapidemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282A70E92A5D694C000AE4FD /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
 		282A70EB2A5D694C000AE4FD /* UnauthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticatedView.swift; sourceTree = "<group>"; };
@@ -59,6 +71,7 @@
 		287EE0D42A6AE8FE00B628F1 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		287EE0D72A6AED8B00B628F1 /* AccessTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenView.swift; sourceTree = "<group>"; };
 		289B58522AFD021400366FBA /* haapidemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = haapidemo.entitlements; sourceTree = "<group>"; };
+		289FF40F2DAFCE3F005ABF2B /* ErrorReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReader.swift; sourceTree = "<group>"; };
 		28C9FD6A2A65278800902F08 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		28C9FD6E2A65315400902F08 /* OAuthStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthStateModel.swift; sourceTree = "<group>"; };
 		28C9FD702A6537D900902F08 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
@@ -67,6 +80,9 @@
 		28C9FD7D2A65405500902F08 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		28C9FD832A655ED400902F08 /* ApplicationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationError.swift; sourceTree = "<group>"; };
 		28C9FD852A657A2700902F08 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		28FAF29D2DA544FF00A85932 /* AuthenticationSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSelectionViewController.swift; sourceTree = "<group>"; };
+		28FAF29F2DA57B0900A85932 /* AuthenticationSelectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSelectorButton.swift; sourceTree = "<group>"; };
+		28FAF2A42DA58BE000A85932 /* AuthenticationSelectorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSelectorLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +97,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2827D6FA2DA3CE9B004E0B43 /* Extensibility */ = {
+			isa = PBXGroup;
+			children = (
+				2827D6FD2DA3D904004E0B43 /* CustomDataMapper.swift */,
+				2827D6FB2DA3CEAA004E0B43 /* CustomViewControllerResolver.swift */,
+				28FAF29D2DA544FF00A85932 /* AuthenticationSelectionViewController.swift */,
+				28FAF29F2DA57B0900A85932 /* AuthenticationSelectorButton.swift */,
+				28FAF2A42DA58BE000A85932 /* AuthenticationSelectorLabel.swift */,
+				2827D7052DA3E707004E0B43 /* HtmlFormLoginModel.swift */,
+				2827D7032DA3E6DB004E0B43 /* HtmlFormLoginViewController.swift */,
+			);
+			path = Extensibility;
+			sourceTree = "<group>";
+		};
 		282A70DD2A5D694C000AE4FD = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +136,7 @@
 				28C9FD852A657A2700902F08 /* Configuration.swift */,
 				282A70E92A5D694C000AE4FD /* DemoApp.swift */,
 				282A70F72A5D6A81000AE4FD /* DemoAppDelegate.swift */,
+				2827D6FA2DA3CE9B004E0B43 /* Extensibility */,
 				287EE0D62A6AED0100B628F1 /* Models */,
 				28C9FD632A6526D400902F08 /* Views */,
 				28C9FD692A65271D00902F08 /* Utilities */,
@@ -150,6 +181,7 @@
 		28C9FD692A65271D00902F08 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				289FF40F2DAFCE3F005ABF2B /* ErrorReader.swift */,
 				28C9FD742A65391C00902F08 /* CustomButtonStyle.swift */,
 				28C9FD702A6537D900902F08 /* TextStyles.swift */,
 				282A70FC2A5D7664000AE4FD /* TrustAllCertsDelegate.swift */,
@@ -190,7 +222,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					282A70E52A5D694C000AE4FD = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -236,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2827D6FE2DA3D90C004E0B43 /* CustomDataMapper.swift in Sources */,
 				287EE0D12A6AE6F000B628F1 /* UserInfoModel.swift in Sources */,
 				28C9FD842A655ED400902F08 /* ApplicationError.swift in Sources */,
 				28C9FD752A65391C00902F08 /* CustomButtonStyle.swift in Sources */,
@@ -245,12 +278,19 @@
 				28C9FD6B2A65278800902F08 /* MainView.swift in Sources */,
 				287EE0D32A6AE6FF00B628F1 /* AccessTokenModel.swift in Sources */,
 				282A70F82A5D6A81000AE4FD /* DemoAppDelegate.swift in Sources */,
+				28FAF29E2DA5451C00A85932 /* AuthenticationSelectionViewController.swift in Sources */,
 				28C9FD7E2A65405500902F08 /* ErrorView.swift in Sources */,
 				28C9FD712A6537D900902F08 /* TextStyles.swift in Sources */,
 				287EE0D52A6AE8FE00B628F1 /* UserInfoView.swift in Sources */,
+				28FAF2A52DA58BE000A85932 /* AuthenticationSelectorLabel.swift in Sources */,
+				2827D6FC2DA3CEAE004E0B43 /* CustomViewControllerResolver.swift in Sources */,
+				289FF4102DAFCE48005ABF2B /* ErrorReader.swift in Sources */,
 				282A70FD2A5D7664000AE4FD /* TrustAllCertsDelegate.swift in Sources */,
+				2827D7042DA3E6E3004E0B43 /* HtmlFormLoginViewController.swift in Sources */,
+				28FAF2A02DA57B0D00A85932 /* AuthenticationSelectorButton.swift in Sources */,
 				287EE0CB2A6AAE3500B628F1 /* ExpanderView.swift in Sources */,
 				282A70EC2A5D694C000AE4FD /* UnauthenticatedView.swift in Sources */,
+				2827D7062DA3E707004E0B43 /* HtmlFormLoginModel.swift in Sources */,
 				287EE0D82A6AED8B00B628F1 /* AccessTokenView.swift in Sources */,
 				282A70EA2A5D694C000AE4FD /* DemoApp.swift in Sources */,
 			);
@@ -295,6 +335,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -355,6 +396,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

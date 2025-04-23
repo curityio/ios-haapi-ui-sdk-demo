@@ -46,13 +46,12 @@ struct UnauthenticatedView: View, HaapiFlowResult {
                     .padding(.trailing, 20)
             } else {
                 ErrorView(error: self.error!)
-                    .padding(.top, 20)
             }
             
             Image("StartIllustration")
                 .aspectRatio(contentMode: .fit)
                 .padding(.top, 60)
-            
+
             Button {
                 self.oauthState.isLoggingIn = true
             } label: {
@@ -67,18 +66,28 @@ struct UnauthenticatedView: View, HaapiFlowResult {
         }
         .sheet(isPresented: $oauthState.isLoggingIn) {
             
-            /*try!*/ HaapiFlow.start(
-                    self,
-                    haapiUIKitApplication: self.haapiApplication,
-                    haapiDeepLinkManageable: HaapiDeepLinkManager.shared)
+            HaapiFlow.start(
+                self,
+                haapiUIKitApplication: self.haapiApplication,
+                haapiDeepLinkManageable: HaapiDeepLinkManager.shared)
         }
     }
     
     func didReceiveOAuthModel(_ tokens: OAuthModel) {
 
         self.oauthState.isLoggingIn = false
+
+        if let error = tokens as? OAuthErrorModel {
+            self.error = ApplicationError(
+                title: "HAAPI Token Error",
+                description: ErrorReader.getTokenErrorDescription(error: error))
+            return
+        }
+
         guard let model = tokens as? OAuthTokenModel else {
-            self.error = ApplicationError(title: "HAAPI Login Error", description: "No tokens returned in login response")
+            self.error = ApplicationError(
+                title: "HAAPI Token Error",
+                description: "No tokens returned in token response")
             return
         }
         
@@ -87,8 +96,25 @@ struct UnauthenticatedView: View, HaapiFlowResult {
     }
 
     func didReceiveError(_ error: Error) {
-    
+        
         self.oauthState.isLoggingIn = false
-        self.error = ApplicationError(title: "HAAPI Login Error", description: error.localizedDescription)
+        if let backendError = error as? HaapiError {
+            
+            self.error = ApplicationError(
+                title: "HAAPI Server Error",
+                description: ErrorReader.getBackendErrorDescription(error: backendError))
+    
+        } else if let frontendError = error as? HaapiUIKitError {
+            
+            self.error = ApplicationError(
+                title: "HAAPI Client Error",
+                description: ErrorReader.getFrontendErrorDescription(error: frontendError))
+    
+        } else {
+    
+            self.error = ApplicationError(
+                title: "HAAPI Error",
+                description: error.localizedDescription)
+        }
     }
 }
