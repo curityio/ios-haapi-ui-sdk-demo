@@ -22,7 +22,7 @@ import IdsvrHaapiUIKit
  */
 class AuthenticationSelectionViewController: UIViewController, HaapiUIViewController {
     
-    var haapiFlowViewControllerDelegate: HaapiFlowViewControllerDelegate?
+    weak var haapiFlowViewControllerDelegate: HaapiFlowViewControllerDelegate?
     var uiStylableThemeDelegate: UIStylableThemeDelegate?
     var model: SelectorModel
  
