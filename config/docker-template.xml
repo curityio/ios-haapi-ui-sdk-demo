@@ -80,8 +80,8 @@
                                 <attestation>
                                 <disable-attestation-validation>true</disable-attestation-validation>
                                 <ios>
-                                    <app-id>$APPLE_BUNDLE_ID</app-id>
-                                    <ios-policy>ios-dev-policy</ios-policy>
+                                    <app-id>$APPLE_TEAM_ID.$APPLE_BUNDLE_ID</app-id>
+                                    <ios-policy>ios-policy</ios-policy>
                                 </ios>
                                 </attestation>
                             </client>
@@ -94,7 +94,7 @@
     <facilities xmlns="https://curity.se/ns/conf/base">
         <client-attestation>
             <ios-policy xmlns="https://curity.se/ns/conf/client-attestation">
-                <id>ios-dev-policy</id>
+                <id>ios-policy</id>
                 <mode>non-production</mode>
             </ios-policy>
         </client-attestation>
