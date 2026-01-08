@@ -47,7 +47,6 @@ class AuthenticationSelectionViewController: UIViewController, HaapiUIViewContro
      * The custom view must submit the correct authentication selection to the server
      */
     @objc private func onAuthenticatorSelected(_ sender: AuthenticationSelectorButton) {
-        print("GJA: here")
         let parameters: [String: String] = [:]
         self.haapiFlowViewControllerDelegate?.submit(interactionActionModel: sender.getModel(), parameters: parameters)
     }
