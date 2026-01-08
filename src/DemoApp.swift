@@ -32,8 +32,11 @@ struct DemoApp: App {
     }
     
     func handleUrl(url: URL) {
-        if HaapiDeepLinkManager.shared.canHandleUrl(url) {
-            HaapiDeepLinkManager.shared.handleUrl(url)
+        
+        Task {
+            if await HaapiDeepLinkManager.shared.canHandleUrl(url) {
+                await HaapiDeepLinkManager.shared.handleUrl(url)
+            }
         }
     }
 }

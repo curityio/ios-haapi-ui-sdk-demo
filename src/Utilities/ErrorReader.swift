@@ -62,8 +62,8 @@ struct ErrorReader {
     
     static func getTokenErrorDescription(error: OAuthErrorModel) -> String {
         
-        let code = error.error ?? "token_error"
-        var description = error.errorDescription
+        let code = error.error
+        var description = error.errorDescription ?? "Problem encountered getting tokens"
         if description.isEmpty {
             description = "A token request failed"
         }
