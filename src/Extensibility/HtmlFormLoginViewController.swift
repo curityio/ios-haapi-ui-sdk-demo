@@ -44,4 +44,15 @@ class HtmlFormLoginFormViewController: FormViewController {
             insertView(banner, aboveView: messagesStackView)
         }
     }
+
+    /*
+     * Do any custom validation before submitting the login data to the Curity Identity Server
+     */
+    /*override func preSubmit(
+        interactionActionModel: InteractionActionModel,
+        parameters: [String: Any],
+        closure: @escaping (Bool, [String: Any]) -> Void) {
+        
+        closure(true, parameters)
+    }*/
 }
