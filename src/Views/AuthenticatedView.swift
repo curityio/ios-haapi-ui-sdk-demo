@@ -172,7 +172,9 @@ struct AuthenticatedView: View, HaapiFlowResult {
                 }
                 
             } catch {
-                self.didReceiveError(error)
+                await MainActor.run {
+                    self.didReceiveError(error)
+                }
             }
         }
     }
