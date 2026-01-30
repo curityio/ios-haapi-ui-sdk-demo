@@ -160,11 +160,23 @@ struct AuthenticatedView: View, HaapiFlowResult {
             return
         }
         
-        OAuthLifecycle.refreshToken(
-            refreshToken: refreshToken,
-            haapiUIKitApplication: self.haapiApplication,
-            lifecycleResultListener: self
-        )
+        Task {
+            do {
+                let tokens = try await OAuthLifecycle.refreshToken(
+                    refreshToken,
+                    haapiUIKitApplication: self.haapiApplication
+                )
+                
+                await MainActor.run {
+                    self.didReceiveOAuthModel(tokens)
+                }
+                
+            } catch {
+                await MainActor.run {
+                    self.didReceiveError(error)
+                }
+            }
+        }
     }
     
     func logout() {

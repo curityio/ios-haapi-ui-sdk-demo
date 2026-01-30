@@ -19,7 +19,7 @@ import IdsvrHaapiUIKit
 /*
  * The entry point for customizing UI models
  */
-class CustomDataMapper: DataMapper {
+final class CustomDataMapper: DataMapper {
 
     let defaultMapper: DataMapper
     

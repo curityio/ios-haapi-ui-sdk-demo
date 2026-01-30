@@ -50,7 +50,7 @@ class AuthenticationSelectionViewController: UIViewController, HaapiUIViewContro
         let parameters: [String: String] = [:]
         self.haapiFlowViewControllerDelegate?.submit(interactionActionModel: sender.getModel(), parameters: parameters)
     }
-    
+
     func onAction() {
     }
     
@@ -78,15 +78,19 @@ class AuthenticationSelectionViewController: UIViewController, HaapiUIViewContro
     func hideHeaderView() {
     }
     
-    func preSubmit(interactionActionModel: any IdsvrHaapiUIKit.InteractionActionModel, parameters: [String: Any], closure: (Bool, [String: Any]) -> Void) {
+    func preSubmit(
+        interactionActionModel: any InteractionActionModel,
+        parameters: [String: any Sendable],
+        closure: @escaping (Bool, [String: any Sendable]) -> Void) {
+
         closure(true, parameters)
     }
-        
-    func preSelect(selectorItemModel: any IdsvrHaapiUIKit.SelectorItemInteractionActionModel, closure: (Bool) -> Void) {
+    
+    func preSelect(selectorItemModel: any SelectorItemInteractionActionModel, closure: (Bool) -> Void) {
         closure(true)
     }
-        
-    func preFollow(linkItemModel: any IdsvrHaapiUIKit.LinkItemModel, closure: (Bool) -> Void) {
+
+    func preFollow(linkItemModel: any LinkItemModel, closure: (Bool) -> Void) {
         closure(true)
     }
     
